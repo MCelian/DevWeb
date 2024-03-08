@@ -3,36 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body{
-            display: grid;
-            grid-template-columns: 20vw 80vw;
-            grid-template-rows: 25vh 50vh 25vh;
-        }
-        header{
-            grid-area: 1/ 1 /2 /2;
-        }
-        nav{
-            grid-area: 1 / 2 / 2 /3;
-        }
-        #logo{
-            height: 100%;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        nav{
-            display: block;
-        }
-    </style>
+    
 </head>
+<style>
+    nav{
+        display: block;
+        text-align: center;
+    }
+
+    li{
+        display: inline-block;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+</style>
 <body>
     <header>
-            <img src="../img/cytech.png" alt="logo" id="logo">
+        <img src="../img/cytech.png" alt="logo">
     </header>
     <nav>
         <ul>
-            <h1>Bienvenue sur notre site</h1>
             <li><a href="">Accueil</a></li>
             <li><a href="">Catégorie1</a></li>
             <li><a href="">Catégorie2</a></li>

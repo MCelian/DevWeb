@@ -1,0 +1,48 @@
+.Corps
+{ 
+    display: grid;
+    grid-template-columns: 227px 10px 1fr;
+    grid-template-rows: 50px 17.5px 200px 10px 30px;
+    grid-template-areas:
+    "Header Header Header"
+    "Aside . Main "
+    "Aside . Main "
+    "Aside . Main "
+    "Footer Footer Footer";
+}
+
+.Header
+{
+    background: rgb(155, 153, 153);
+    border : 2px solid white;
+    grid-area: Header;
+    text-align:center;
+}
+
+.Body
+{
+    background: rgb(164, 164, 255);
+    border :2px solid white;
+    grid-area: Main;
+    text-align:center;
+}
+
+.Aside 
+{
+    border : 2px solid white;
+    grid-area: Aside;
+    text-align:center;
+}
+
+.Footer 
+{
+    background-color: #e95050;
+    border : 2px solid rgb(255, 255, 255);
+    grid-area: Footer;
+    text-align:center;
+}
+
+#w
+{
+    color: rgb(33, 112, 14);
+}
