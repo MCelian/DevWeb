@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/icon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Lafleur : Accueil</title>
+</head>
+
+<body>
+    <header>
+        <img src="../img/logo.jpg" alt="Logo du site" id="logo">
+        <div id="menu">
+            <h1 id="titre">Société Lafleur</h1>
+            <ul>
+                <li><a href="../html/index.html">Accueil</a></li>
+                <li><a href="../html/bulbes.html">Bulbes</a></li>
+                <li><a href="../html/rosiers.html">Rosiers</a></li>
+                <li><a href="../html/massif.html">Plantes à massif</a></li>
+                <li><a href="../html/contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div id="espaceClient">
+            <a href="">Connexion</a>
+            <br>
+            <a href="">Panier</a>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <h1>Sté Lafleur</h1>
+            <li><a href="../html/index.html">Accueil</a></li>
+            <hr>
+            <h2>Nos produits</h2>
+            <li><a href="../html/bulbes.html">Bulbes</a></li>
+            <li><a href="../html/rosiers.html">Rosiers</a></li>
+            <li><a href="../html/massif.html">Plantes à massif</a></li>
+            <h2>Aide</h2>
+            <li><a href="../html/contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <form action="" method="POST" id="contact">
+            <h1>Demande de Contact</h1>
+            <table style='margin-left: 30px;'>
+                <tr>
+                    <td>
+                        Date du contact
+                    </td>
+                    <td>
+                        <input class='inputs' type="date" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Nom
+                    </td>
+                    <td>
+                        <input class='inputs' type="text" placeholder="Entrez votre Nom" name="Nom" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Prénom
+                    </td>
+                    <td>
+                        <input class='inputs' type="text" placeholder="Entrez votre Prénom" name="Prénom" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        E-mail
+                    </td>
+                    <td>
+                        <input class='inputs' type="email" placeholder="Entrez votre e-mail" name="Email" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Genre
+                    </td>
+                    <td>
+                        <input type="radio" id="sexe" name="sexe"> Homme <br>
+                        <input type="radio" id="sexe" name="sexe"> Femme
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Date de Naissance
+                    </td>
+                    <td>
+                        <input class='inputs' type="date" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Fonction
+                    </td>
+                    <td>
+                        <input class='inputs' list="fonction">
+                        <datalist type="text" id="fonction" name="fonction">
+                            <option>Enseignant</option>
+                            <option>Chômeur</option>
+                            <option>Fonctionnaire</option>
+                            <option>Étudiant</option>
+                            <option>Cadre</option>
+                            <option>Employé</option>
+                        </datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Sujet
+                    </td>
+                    <td>
+                        <input class='inputs' type="text" placeholder="Entrez le sujet du message" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Contenu
+                    </td>
+                    <td>
+                        <textarea class='inputs' placeholder="Entrez le contenu du message" required></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'>
+                        <br><input class='inputs' type="submit" value="Envoyez">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </main>
+    <footer>
+        <p>Copyright Société LaFleur</p>
+        <p>Olivier Compagnon--Minarro, Clément Delamotte, Matthias Franchini, Célian Mignot, Hénoch Xu - Module Dev Web
+            - ING1 GI 3</p>
+    </footer>
+</body>
+
+</html>

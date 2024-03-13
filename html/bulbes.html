@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../img/icon.png">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/afficherStock.js"></script>
     <title>Lafleur : Accueil</title>
 </head>
 
@@ -42,10 +43,38 @@
         </ul>
     </nav>
     <main>
-        <h1>"Dites-le avec Lafleur"</h1>
-        <img src="../img/logo.jpg" alt="logo du site" id="mainLogo">
-        <br>
-        Appeler notre service commercial au 03.22.84.65.74 pour un bon de commande
+        <h1>Bulbes</h1>
+        <table>
+            <tr>
+                <th>Photo</th>
+                <th>Référence</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th class='stock'>Stock</th>
+            </tr>
+            <tr>
+                <td><img src="../img/bulbes_begonia.jpg" alt="bulbes de begonia" class="article"></td>
+                <td>b01</td>
+                <td>3 bulbes de bégonias</td>
+                <td>5.00 €</td>
+                <td class='stock'>10</td>
+            </tr>
+            <tr>
+                <td><img src="../img/bulbes_dahlia.jpg" alt="bulbes de dahlia" class="article"></td>
+                <td>b02</td>
+                <td>10 bulbes de dahlias</td>
+                <td>12.00 €</td>
+                <td class='stock'>10</td>
+            </tr>
+            <tr>
+                <td><img src="../img/bulbes_glaieul.jpg" alt="bulbes de glaieul" class="article"></td>
+                <td>b03</td>
+                <td>50 glaïeuls</td>
+                <td>9.00 €</td>
+                <td class='stock'>10</td>
+            </tr>
+        </table>
+        <button onclick="StockAffich()">Afficher/Masquer stock</button>
     </main>
     <footer>
         <p>Copyright Société LaFleur</p>

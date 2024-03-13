@@ -1,0 +1,120 @@
+body{
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    grid-template-rows: 0.3fr 1fr 0.3fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    min-width: 800px;
+}
+header{
+    grid-area: 1 / 1 / 2 / 3;
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 0.2fr;
+    grid-template-rows: 100%;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    background-color: lightblue;
+}
+
+#logo{
+    grid-area: 1 / 1 / 2 / 2;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#menu{
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+#espaceClient{
+    grid-area: 1 / 3 / 2 / 4;
+    text-align: right;
+    padding: 10px 30px 10px 30px;
+}
+
+nav{
+    grid-area: 2 / 1 / 3 / 2;
+    background-color: lightgreen;
+    padding: 10px 30px 10px 30px;
+}
+
+main{
+    grid-area: 2 / 2 / 3 / 3;
+    background-color: lightpink;
+    padding: 10px 30px 10px 30px;
+    text-align: center;
+    line-height: 46px;
+}
+
+footer{
+    grid-area: 3 / 1 / 4 / 3;
+    text-align: center;
+    background-color: yellow;
+    padding: 10px 30px 10px 30px;
+}
+
+#titre{
+    text-align: center;
+}
+
+#menu ul{
+    font-family: "Times";
+	font-size: 15pt;	
+    background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 46px;
+	padding-left: 0px;
+}
+
+#menu li {
+	flex: auto;
+	list-style-type: none;
+	text-align: center;
+	height: 100%;
+}
+
+#menu li a {
+	display: block;
+	color: white;
+	text-decoration: none;
+	line-height: 46px;
+	text-align: center;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+	transition: text-shadow, color 1s;
+	position: relative;
+}
+
+#menu a:hover {
+	color: black;
+	height: 100%;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.1);
+	transition: text-shadow, color 1s;
+}
+
+nav ul{
+    list-style-type: none;
+    padding-left: 0px;
+    text-align: center;
+}
+
+.article{
+    width: 200px;
+}
+
+.stock{
+    visibility: hidden;
+}
+
+.moins{
+    visibility: hidden;
+}
