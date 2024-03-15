@@ -11,10 +11,11 @@ function StockAffich() {
 /* Fonction à terminer */
 
 function addStockCommande(i){
-    var element = document.getElementsByClassName('commande');
+    var element = document.getElementsByClassName("commande");
     var stocks = document.getElementsByClassName('stock');
     var moins = document.getElementsByClassName('moins');
     var plus = document.getElementsByClassName('plus');
+    console.log('debut : ' + element[i].value);
     if (element[i].value < stocks[i].innerHTML)
     {
         element[i].value ++;
