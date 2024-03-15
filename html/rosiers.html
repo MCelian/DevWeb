@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../img/icon.png">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/afficherStock.js"></script>
     <title>Lafleur : Accueil</title>
 </head>
 
@@ -42,10 +43,38 @@
         </ul>
     </nav>
     <main>
-        <h1>"Dites-le avec Lafleur"</h1>
-        <img src="../img/logo.jpg" alt="logo du site" id="mainLogo">
-        <br>
-        Appeler notre service commercial au 03.22.84.65.74 pour un bon de commande
+        <h1>Bulbes</h1>
+        <table>
+            <tr>
+                <th>Photo</th>
+                <th>Référence</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th class='stock'>Stock</th>
+            </tr>
+            <tr>
+                <td><img src="../img/rosiers_gdefleur.jpg" alt="rosier grande fleur" class="article"></td>
+                <td>r01</td>
+                <td>1 pied spécial grandes fleurs</td>
+                <td>20.00 €</td>
+                <td class='stock'>10</td>
+            </tr>
+            <tr>
+                <td><img src="../img/rosiers_parfum.jpg" alt="rosier parfumé " class="article"></td>
+                <td>r02</td>
+                <td>Une variété sélectionné pour son parfum</td>
+                <td>9.00 €</td>
+                <td class='stock'>10</td>
+            </tr>
+            <tr>
+                <td><img src="../img/rosiers_arbuste.jpg" alt="rosier arbuste" class="article"></td>
+                <td>r03</td>
+                <td>Rosier arbuste</td>
+                <td>8.00 €</td>
+                <td class='stock'>10</td>
+            </tr>
+        </table>
+        <button onclick="StockAffich()">Afficher/Masquer stock</button>
     </main>
     <footer>
         <p>Copyright Société LaFleur</p>

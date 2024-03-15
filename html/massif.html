@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/icon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/afficherStock.js"></script>
+    <title>Lafleur : Accueil</title>
+</head>
+
+<body>
+    <header>
+        <img src="../img/logo.jpg" alt="Logo du site" id="logo">
+        <div id="menu">
+            <h1 id="titre">Société Lafleur</h1>
+            <ul>
+                <li><a href="../html/index.html">Accueil</a></li>
+                <li><a href="../html/bulbes.html">Bulbes</a></li>
+                <li><a href="../html/rosiers.html">Rosiers</a></li>
+                <li><a href="../html/massif.html">Plantes à massif</a></li>
+                <li><a href="../html/contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div id="espaceClient">
+            <a href="">Connexion</a>
+            <br>
+            <a href="">Panier</a>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <h1>Sté Lafleur</h1>
+            <li><a href="../html/index.html">Accueil</a></li>
+            <hr>
+            <h2>Nos produits</h2>
+            <li><a href="../html/bulbes.html">Bulbes</a></li>
+            <li><a href="../html/rosiers.html">Rosiers</a></li>
+            <li><a href="../html/massif.html">Plantes à massif</a></li>
+            <h2>Aide</h2>
+            <li><a href="../html/contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h1>Bulbes</h1>
+        <table>
+            <tr>
+                <th>Photo</th>
+                <th>Référence</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th class='stock'>Stock</th>
+                <th class='commande'>Commande</th>
+            </tr>
+            <tr>
+                <td><img src="../img/massif_marguerite.jpg" alt="massif de marguerite" class="article"></td>
+                <td>m01</td>
+                <td>Lot de 3 marguerites</td>
+                <td>5.00 €</td>
+                <td class='stock'>10</td>
+                <td>
+                    <form action="" method="post">
+                        <input type="button" value="-" class='moins' onclick="removeStockCommande(1)">
+                        <input type="text" name="" class="commande" value="0" readonly="true">
+                        <input type="button" value="+" class='plus' onclick="addStockCommande(1)">
+                        <br>
+                        <input type="submit" value="Ajouter au panier">
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="../img/massif_pensee.jpg" alt="massif de pensée" class="article"></td>
+                <td>m02</td>
+                <td>Pour un bouquet de 6 pensées</td>
+                <td>6.00 €</td>
+                <td class='stock'>10</td>
+            </tr>
+            <tr>
+                <td><img src="../img/massif_melange.jpg" alt="massif mélange" class="article"></td>
+                <td>m03</td>
+                <td>Mélange varié de 10 plantes à massif</td>
+                <td>15.00 €</td>
+                <td class='stock'>10</td>
+            </tr>
+        </table>
+        <button onclick="StockAffich()">Afficher/Masquer stock</button>
+    </main>
+    <footer>
+        <p>Copyright Société LaFleur</p>
+        <p>Olivier Compagnon--Minarro, Clément Delamotte, Matthias Franchini, Célian Mignot, Hénoch Xu - Module Dev Web
+            - ING1 GI 3</p>
+    </footer>
+</body>
+
+</html>
