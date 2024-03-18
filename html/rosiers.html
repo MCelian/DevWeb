@@ -50,28 +50,55 @@
                 <th>Référence</th>
                 <th>Description</th>
                 <th>Prix</th>
-                <th class='stock'>Stock</th>
+                <th class='stock' style="visibility: hidden;">Stock</th>
             </tr>
             <tr>
                 <td><img src="../img/rosiers_gdefleur.jpg" alt="rosier grande fleur" class="article"></td>
                 <td>r01</td>
                 <td>1 pied spécial grandes fleurs</td>
                 <td>20.00 €</td>
-                <td class='stock'>10</td>
+                <td class='stock' style="visibility: hidden;">10</td>
+                <td>
+                    <form action="" method="post">
+                        <input type="button" value="-" class='moins' onclick="removeStockCommande(1)">
+                        <input type="text" name="" class="commande" value="0" readonly="true">
+                        <input type="button" value="+" class='plus' onclick="addStockCommande(1)">
+                        <br>
+                        <input type="submit" value="Ajouter au panier">
+                    </form>
+                </td>
             </tr>
             <tr>
                 <td><img src="../img/rosiers_parfum.jpg" alt="rosier parfumé " class="article"></td>
                 <td>r02</td>
                 <td>Une variété sélectionné pour son parfum</td>
                 <td>9.00 €</td>
-                <td class='stock'>10</td>
+                <td class='stock' style="visibility: hidden;">10</td>
+                <td>
+                    <form action="" method="post">
+                        <input type="button" value="-" class='moins' onclick="removeStockCommande(1)">
+                        <input type="text" name="" class="commande" value="0" readonly="true">
+                        <input type="button" value="+" class='plus' onclick="addStockCommande(1)">
+                        <br>
+                        <input type="submit" value="Ajouter au panier">
+                    </form>
+                </td>
             </tr>
             <tr>
                 <td><img src="../img/rosiers_arbuste.jpg" alt="rosier arbuste" class="article"></td>
                 <td>r03</td>
                 <td>Rosier arbuste</td>
                 <td>8.00 €</td>
-                <td class='stock'>10</td>
+                <td class='stock' style="visibility: hidden;">10</td>
+                <td>
+                    <form action="" method="post">
+                        <input type="button" value="-" class='moins' onclick="removeStockCommande(1)">
+                        <input type="text" name="" class="commande" value="0" readonly="true">
+                        <input type="button" value="+" class='plus' onclick="addStockCommande(1)">
+                        <br>
+                        <input type="submit" value="Ajouter au panier">
+                    </form>
+                </td>
             </tr>
         </table>
         <button onclick="StockAffich()">Afficher/Masquer stock</button>

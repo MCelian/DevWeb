@@ -50,7 +50,7 @@
                 <th>Référence</th>
                 <th>Description</th>
                 <th>Prix</th>
-                <th class='stock'>Stock</th>
+                <th class='stock' style="visibility: hidden;">Stock</th>
                 <th class='commande'>Commande</th>
             </tr>
             <tr>
@@ -58,7 +58,7 @@
                 <td>m01</td>
                 <td>Lot de 3 marguerites</td>
                 <td>5.00 €</td>
-                <td class='stock'>10</td>
+                <td class='stock' style="visibility: hidden;">10</td>
                 <td>
                     <form action="" method="post">
                         <input type="button" value="-" class='moins' onclick="removeStockCommande(1)">
@@ -74,14 +74,32 @@
                 <td>m02</td>
                 <td>Pour un bouquet de 6 pensées</td>
                 <td>6.00 €</td>
-                <td class='stock'>10</td>
+                <td class='stock' style="visibility: hidden;">10</td>
+                <td>
+                    <form action="" method="post">
+                        <input type="button" value="-" class='moins' onclick="removeStockCommande(2)">
+                        <input type="text" name="" class="commande" value="0" readonly="true">
+                        <input type="button" value="+" class='plus' onclick="addStockCommande(2)">
+                        <br>
+                        <input type="submit" value="Ajouter au panier">
+                    </form>
+                </td>
             </tr>
             <tr>
                 <td><img src="../img/massif_melange.jpg" alt="massif mélange" class="article"></td>
                 <td>m03</td>
                 <td>Mélange varié de 10 plantes à massif</td>
                 <td>15.00 €</td>
-                <td class='stock'>10</td>
+                <td class='stock' style="visibility: hidden;">10</td>
+                <td>
+                    <form action="" method="post">
+                        <input type="button" value="-" class='moins' onclick="removeStockCommande(3)">
+                        <input type="text" name="" class="commande" value="0" readonly="true">
+                        <input type="button" value="+" class='plus' onclick="addStockCommande(3)">
+                        <br>
+                        <input type="submit" value="Ajouter au panier">
+                    </form>
+                </td>
             </tr>
         </table>
         <button onclick="StockAffich()">Afficher/Masquer stock</button>
