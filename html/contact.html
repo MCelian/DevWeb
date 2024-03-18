@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../img/icon.png">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/contact.js"></script>
     <title>Lafleur : Accueil</title>
 </head>
 
@@ -50,7 +51,7 @@
                         Date du contact
                     </td>
                     <td>
-                        <input class='inputs' type="date" required>
+                        <input class='inputs' type="date" name="date"required oninput="checkDate()">
                     </td>
                 </tr>
                 <tr>
@@ -82,8 +83,9 @@
                         Genre
                     </td>
                     <td>
-                        <input type="radio" id="sexe" name="sexe"> Homme <br>
-                        <input type="radio" id="sexe" name="sexe"> Femme
+                        <input type="radio" id="sexe" name="homme"> Homme <br>
+                        <input type="radio" id="sexe" name="femme"> Femme <br>
+                        <input type="radio" id="sexe" name="autre"> Autre </td>
                     </td>
                 </tr>
                 <tr>
@@ -101,12 +103,13 @@
                     <td>
                         <input class='inputs' list="fonction">
                         <datalist type="text" id="fonction" name="fonction">
-                            <option>Enseignant</option>
-                            <option>Chômeur</option>
-                            <option>Fonctionnaire</option>
-                            <option>Étudiant</option>
-                            <option>Cadre</option>
-                            <option>Employé</option>
+                            <option value="enseignant">Enseignant</option>
+                            <option value="chomeur">Chômeur</option>
+                            <option value="fonctionnaire">Fonctionnaire</option>
+                            <option value="etudiant">Étudiant</option>
+                            <option value="cadre">Cadre</option>
+                            <option value="employe">Employé</option>
+                            <option value^="autre">Autre</option>
                         </datalist>
                     </td>
                 </tr>

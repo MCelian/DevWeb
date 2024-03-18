@@ -7,6 +7,7 @@
     <link rel="icon" href="../img/icon.png">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/afficherStock.js"></script>
+    <script src="../js/zoom.js"></script>
     <title>Lafleur : Accueil</title>
 </head>
 
@@ -28,6 +29,10 @@
             <br>
             <a href="">Panier</a>
         </div>
+        <div id="myModal" class="modal">
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+        </div>
     </header>
     <nav>
         <ul>
@@ -43,7 +48,7 @@
         </ul>
     </nav>
     <main>
-        <h1>Bulbes</h1>
+        <h1>Rosiers</h1>
         <table>
             <tr>
                 <th>Photo</th>
@@ -51,9 +56,10 @@
                 <th>Description</th>
                 <th>Prix</th>
                 <th class='stock' style="visibility: hidden;">Stock</th>
+                <th class='commande'>Commande</th>
             </tr>
             <tr>
-                <td><img src="../img/rosiers_gdefleur.jpg" alt="rosier grande fleur" class="article"></td>
+                <td><img src="../img/rosiers_gdefleur.jpg" alt="rosier grande fleur" class="article" id="myImg"></td>
                 <td>r01</td>
                 <td>1 pied spécial grandes fleurs</td>
                 <td>20.00 €</td>
@@ -69,16 +75,16 @@
                 </td>
             </tr>
             <tr>
-                <td><img src="../img/rosiers_parfum.jpg" alt="rosier parfumé " class="article"></td>
+                <td><img src="../img/rosiers_parfum.jpg" alt="rosier parfumé " class="article" ></td>
                 <td>r02</td>
                 <td>Une variété sélectionné pour son parfum</td>
                 <td>9.00 €</td>
                 <td class='stock' style="visibility: hidden;">10</td>
                 <td>
                     <form action="" method="post">
-                        <input type="button" value="-" class='moins' onclick="removeStockCommande(1)">
+                        <input type="button" value="-" class='moins' onclick="removeStockCommande(2)">
                         <input type="text" name="" class="commande" value="0" readonly="true">
-                        <input type="button" value="+" class='plus' onclick="addStockCommande(1)">
+                        <input type="button" value="+" class='plus' onclick="addStockCommande(2)">
                         <br>
                         <input type="submit" value="Ajouter au panier">
                     </form>
@@ -92,9 +98,9 @@
                 <td class='stock' style="visibility: hidden;">10</td>
                 <td>
                     <form action="" method="post">
-                        <input type="button" value="-" class='moins' onclick="removeStockCommande(1)">
+                        <input type="button" value="-" class='moins' onclick="removeStockCommande(3)">
                         <input type="text" name="" class="commande" value="0" readonly="true">
-                        <input type="button" value="+" class='plus' onclick="addStockCommande(1)">
+                        <input type="button" value="+" class='plus' onclick="addStockCommande(3)">
                         <br>
                         <input type="submit" value="Ajouter au panier">
                     </form>
@@ -108,6 +114,33 @@
         <p>Olivier Compagnon--Minarro, Clément Delamotte, Matthias Franchini, Célian Mignot, Hénoch Xu - Module Dev Web
             - ING1 GI 3</p>
     </footer>
+
+    <script>
+                // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the image and insert it inside the modal - use its "alt" text as a caption
+            var img = document.getElementById('myImg');
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                modalImg.alt = this.alt;
+                captionText.innerHTML = this.alt;
+            }
+
+
+            // When the user clicks on <span> (x), close the modal
+            modal.onclick = function() {
+                img01.className += " out";
+                setTimeout(function() {
+                modal.style.display = "none";
+                img01.className = "modal-content";
+                }, 400);
+                
+            }   
+    </script>
 </body>
 
 </html>

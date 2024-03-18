@@ -51,6 +51,7 @@
                 <th>Description</th>
                 <th>Prix</th>
                 <th class='stock' style="visibility: hidden;">Stock</th>
+                <th class='commande'>Commande</th>
             </tr>
             <tr>
                 <td><img src="../img/bulbes_begonia.jpg" alt="bulbes de begonia" class="article"></td>
@@ -76,9 +77,9 @@
                 <td class='stock' style="visibility: hidden;">10</td>
                 <td>
                     <form action="" method="post">
-                        <input type="button" value="-" class='moins' onclick="removeStockCommande(1)">
+                        <input type="button" value="-" class='moins' onclick="removeStockCommande(2)">
                         <input type="text" name="" class="commande" value="0" readonly="true">
-                        <input type="button" value="+" class='plus' onclick="addStockCommande(1)">
+                        <input type="button" value="+" class='plus' onclick="addStockCommande(2)">
                         <br>
                         <input type="submit" value="Ajouter au panier">
                     </form>
@@ -92,9 +93,9 @@
                 <td class='stock' style="visibility: hidden;">10</td>
                 <td>
                     <form action="" method="post">
-                        <input type="button" value="-" class='moins' onclick="removeStockCommande(1)">
+                        <input type="button" value="-" class='moins' onclick="removeStockCommande(3)">
                         <input type="text" name="" class="commande" value="0" readonly="true">
-                        <input type="button" value="+" class='plus' onclick="addStockCommande(1)">
+                        <input type="button" value="+" class='plus' onclick="addStockCommande(3)">
                         <br>
                         <input type="submit" value="Ajouter au panier">
                     </form>
