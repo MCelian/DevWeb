@@ -1,15 +1,10 @@
 /* Fonction à terminer*/
 function StockAffich() {
     /* Nombre d'objets restants */
-    var stocks = document.getElementsByClassName('stock');
-    for(i = 0 ; i < stocks.length ; i++) {
-        console.log("before [" + stocks[i].style.visibility + "]");
-        stocks[i].style.visibility = stocks[i].style.visibility == 'hidden' ? 'visible' : 'hidden';
-        console.log("after " + stocks[i].style.visibility);
-    }
+    let stocks = document.querySelectorAll(".stock");
+    for(let i = 0; i < stocks.length; i++)
+        stocks[i].classList.toggle("afficherStock");
 }
-
-
 
 
 function addStockCommande(i){
@@ -21,7 +16,6 @@ function addStockCommande(i){
     var moins = document.getElementsByClassName('moins');
     /* Incrémente le stock */
     var plus = document.getElementsByClassName('plus');
-    console.log('debut : ' + element[i].value);
     if (parseInt(element[i].value) < stocks[i].innerHTML)
     {
         element[i].value ++;
@@ -31,7 +25,6 @@ function addStockCommande(i){
 
         if(element[i].value > 0)
             moins[i-1].style.visibility = 'visible';
-        console.log('if ' + stocks[i].innerHTML);
     }    
 }
 

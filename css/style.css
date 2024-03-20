@@ -111,7 +111,13 @@ nav ul{
     width: 200px;
 }
 
+.stock.afficherStock{
+    visibility: visible;
+}
 
+.stock{
+    visibility: hidden;
+}
 
 .moins{
     visibility: hidden;
