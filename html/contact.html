@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../img/icon.png">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/contact.js"></script>
-    <title>Lafleur : Accueil</title>
+    <title>Lafleur : Contact</title>
 </head>
 
 <body>
     <header>
-        <img src="../img/logo.jpg" alt="Logo du site" id="logo">
-        <div id="menu">
+        <a href="../html/index.html">
+            <img src="../img/logo.jpg" alt="Logo du site" id="logo" onclick="">
+        </a>
+        <div id="banderole">
             <h1 id="titre">Société Lafleur</h1>
             <ul>
                 <li><a href="../html/index.html">Accueil</a></li>
@@ -43,96 +44,62 @@
         </ul>
     </nav>
     <main>
-        <form action="" method="POST" id="contact">
-            <h1>Demande de Contact</h1>
-            <table style='margin-left: 30px;'>
+        <h1>Demande de contact</h1>
+        <form action="" method="post">
+            <table id="contact">
                 <tr>
+                    <td><label for="date">Date du contact :</label></td>
+                    <td><input type="date" name="date" required></td>
+                </tr>
+                <tr>
+                    <td><label for="nom">Nom :</label></td>
+                    <td><input type="text" name="nom" placeholder="Entrez votre nom" required></td>
+                </tr>
+                <tr>
+                    <td><label for="prenom">Prénom :</label></td>
+                    <td><input type="text" name="prenom" placeholder="Entrez votre prénom" required></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email :</label></td>
+                    <td><input type="email" name="email" placeholder="monmail@monsite.org" required></td>
+                </tr>
+                <tr>
+                    <td><label for="genre">Genre :</label></td>
                     <td>
-                        Date du contact
-                    </td>
-                    <td>
-                        <input class='inputs' type="date" name="date"required oninput="checkDate()">
+                        <input type="radio" name="genre" value="Homme" required>Homme <br>
+                        <input type="radio" name="genre" value="Homme">Femme <br>
+                        <input type="radio" name="genre" value="Autre">Autre <br>
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        Nom
-                    </td>
-                    <td>
-                        <input class='inputs' type="text" placeholder="Entrez votre Nom" name="Nom" required>
-                    </td>
+                    <td><label for="naissance">Date de naissance :</label></td>
+                    <td><input type="date" name="naissance" required></td>
                 </tr>
                 <tr>
+                    <td><label for="fonction">Fonction :</label></td>
                     <td>
-                        Prénom
-                    </td>
-                    <td>
-                        <input class='inputs' type="text" placeholder="Entrez votre Prénom" name="Prénom" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        E-mail
-                    </td>
-                    <td>
-                        <input class='inputs' type="email" placeholder="Entrez votre e-mail" name="Email" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Genre
-                    </td>
-                    <td>
-                        <input type="radio" id="sexe" name="homme"> Homme <br>
-                        <input type="radio" id="sexe" name="femme"> Femme <br>
-                        <input type="radio" id="sexe" name="autre"> Autre </td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Date de Naissance
-                    </td>
-                    <td>
-                        <input class='inputs' type="date" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Fonction
-                    </td>
-                    <td>
-                        <input class='inputs' list="fonction">
-                        <datalist type="text" id="fonction" name="fonction">
+                        <input type="text" name="fonction" list="fonction" required>
+                        <datalist type="text" id="fonction">
                             <option value="enseignant">Enseignant</option>
                             <option value="chomeur">Chômeur</option>
                             <option value="fonctionnaire">Fonctionnaire</option>
                             <option value="etudiant">Étudiant</option>
                             <option value="cadre">Cadre</option>
                             <option value="employe">Employé</option>
-                            <option value^="autre">Autre</option>
+                            <option value="autre">Autre</option>
                         </datalist>
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        Sujet
-                    </td>
-                    <td>
-                        <input class='inputs' type="text" placeholder="Entrez le sujet du message" required>
-                    </td>
+                    <td><label for="sujet">Sujet :</label></td>
+                    <td><input type="text" name="sujet" placeholder="Entrez le sujet de votre mail" required></td>
                 </tr>
                 <tr>
-                    <td>
-                        Contenu
-                    </td>
-                    <td>
-                        <textarea class='inputs' placeholder="Entrez le contenu du message" required></textarea>
-                    </td>
+                    <td><label for="contenu">Contenu :</label></td>
+                    <td><textarea name="contenu" placeholder="Tapez ici votre mail" required></textarea></td>
                 </tr>
                 <tr>
-                    <td colspan='2'>
-                        <br><input class='inputs' type="submit" value="Envoyez">
-                    </td>
+                    <td colspan="2"><input type="submit" value="Envoyer"></td>
                 </tr>
             </table>
         </form>

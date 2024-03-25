@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../img/icon.png">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/afficherStock.js"></script>
-    <title>Lafleur : Accueil</title>
+    <script src="../js/stock.js"></script>
+    <script src="../js/popup.js"></script>
+    <title>Lafleur : Bulbes</title>
 </head>
 
 <body>
     <header>
-        <img src="../img/logo.jpg" alt="Logo du site" id="logo">
-        <div id="menu">
+        <a href="../html/index.html">
+            <img src="../img/logo.jpg" alt="Logo du site" id="logo" onclick="">
+        </a>
+        <div id="banderole">
             <h1 id="titre">Société Lafleur</h1>
             <ul>
                 <li><a href="../html/index.html">Accueil</a></li>
@@ -43,6 +46,13 @@
         </ul>
     </nav>
     <main>
+        <!--Accueillir l'image dans un Popup -->
+        <div id="popup-overlay">
+            <div id="popup">
+                <span id="fermer-popup" onclick="fermerImage()">&times;</span>
+                <img src="" alt="" id="image-popup">
+            </div>
+        </div>
         <h1>Bulbes</h1>
         <table>
             <tr>
@@ -50,59 +60,56 @@
                 <th>Référence</th>
                 <th>Description</th>
                 <th>Prix</th>
-                <th class='stock' style="visibility: hidden;">Stock</th>
-                <th class='commande'>Commande</th>
+                <th class="stock">Stock</th>
+                <th>Commande</th>
             </tr>
             <tr>
-                <td><img src="../img/bulbes_begonia.jpg" alt="bulbes de begonia" class="article"></td>
+                <td><img src="../img/bulbes_begonia.jpg" alt="bulbes de begonia" class="photo-article" onclick="afficherImage(this)"></td>
                 <td>b01</td>
                 <td>3 bulbes de bégonias</td>
                 <td>5.00 €</td>
-                <td class='stock' style="visibility: hidden;">10</td>
+                <td class="stock">10</td>
                 <td>
                     <form action="" method="post">
-                        <input type="button" value="-" class='moins' onclick="removeStockCommande(1)">
-                        <input type="text" name="" class="commande" value="0" readonly="true">
-                        <input type="button" value="+" class='plus' onclick="addStockCommande(1)">
-                        <br>
-                        <input type="submit" value="Ajouter au panier">
+                        <input type="button" value="-" disabled onclick="retirerDuPanier(this)">
+                        <input type="text" value="0" readonly class="quantite-voulue">
+                        <input type="button" value="+" onclick="ajouterAuPanier(this)"> <br>
+                        <input type="submit" value="Ajouter au panier" disabled>
                     </form>
                 </td>
             </tr>
             <tr>
-                <td><img src="../img/bulbes_dahlia.jpg" alt="bulbes de dahlia" class="article"></td>
+                <td><img src="../img/bulbes_dahlia.jpg" alt="bulbes de dahlia" class="photo-article" onclick="afficherImage(this)"></td>
                 <td>b02</td>
                 <td>10 bulbes de dahlias</td>
                 <td>12.00 €</td>
-                <td class='stock' style="visibility: hidden;">10</td>
+                <td class="stock">10</td>
                 <td>
                     <form action="" method="post">
-                        <input type="button" value="-" class='moins' onclick="removeStockCommande(2)">
-                        <input type="text" name="" class="commande" value="0" readonly="true">
-                        <input type="button" value="+" class='plus' onclick="addStockCommande(2)">
-                        <br>
-                        <input type="submit" value="Ajouter au panier">
+                        <input type="button" value="-" disabled onclick="retirerDuPanier(this)">
+                        <input type="text" value="0" readonly class="quantite-voulue">
+                        <input type="button" value="+" onclick="ajouterAuPanier(this)"> <br>
+                        <input type="submit" value="Ajouter au panier" disabled>
                     </form>
                 </td>
             </tr>
             <tr>
-                <td><img src="../img/bulbes_glaieul.jpg" alt="bulbes de glaieul" class="article"></td>
+                <td><img src="../img/bulbes_glaieul.jpg" alt="bulbes de glaieul" class="photo-article" onclick="afficherImage(this)"></td>
                 <td>b03</td>
                 <td>50 glaïeuls</td>
                 <td>9.00 €</td>
-                <td class='stock' style="visibility: hidden;">10</td>
+                <td class="stock">10</td>
                 <td>
                     <form action="" method="post">
-                        <input type="button" value="-" class='moins' onclick="removeStockCommande(3)">
-                        <input type="text" name="" class="commande" value="0" readonly="true">
-                        <input type="button" value="+" class='plus' onclick="addStockCommande(3)">
-                        <br>
-                        <input type="submit" value="Ajouter au panier">
+                        <input type="button" value="-" disabled onclick="retirerDuPanier(this)">
+                        <input type="text" value="0" readonly class="quantite-voulue">
+                        <input type="button" value="+" onclick="ajouterAuPanier(this)"> <br>
+                        <input type="submit" value="Ajouter au panier" disabled>
                     </form>
                 </td>
             </tr>
         </table>
-        <button onclick="StockAffich()">Afficher/Masquer stock</button>
+        <button onclick="afficherStock()" id="bouton-Stock">Afficher/Masquer Stock</button>
     </main>
     <footer>
         <p>Copyright Société LaFleur</p>
