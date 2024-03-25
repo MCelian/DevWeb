@@ -8,7 +8,7 @@ function checkContact(){
 
     for(var i =0; i< Name.length; i++ ){
         var Data=document.getElementsByName(Name[i]);
-        console.log(Data);
+        console.log(Data)
         
 
     }

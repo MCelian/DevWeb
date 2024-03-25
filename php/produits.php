@@ -1,3 +1,8 @@
+<?php
+    require "../php/stock.php";
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -15,7 +20,14 @@
     <?php include("../html/header.html"); ?>
     <?php include("../html/nav.html"); ?>
     <main>
-
+        <!--Accueillir l'image dans un Popup -->
+        <div id="popup-overlay">
+            <div id="popup">
+                <span id="fermer-popup" onclick="fermerImage()">&times;</span>
+                <img src="" alt="" id="image-popup">
+            </div>
+        </div>
+        <?php afficherProduits($_GET["cat"]); ?>
     </main>
     <?php include("../html/footer.html"); ?>
 </body>
