@@ -1,6 +1,14 @@
 Bonjour,
 
-J'ai avancer sur la partie 1 du projet pour mon entretien. Célian
+A faire :
+
+-CSS :
+    -Mise en page général
+
+-Javascript :
+    -Vérification du formulaire de contact
+-PHP :
+    -Automatiser les menus
 
 Voici le projet de Dev Web pour notre Année d'ING1
 
