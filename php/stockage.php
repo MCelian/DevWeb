@@ -5,6 +5,7 @@ if(! isset($_SESSION['categorie'])) include('../php/varSession.inc.php');
 
 function exporterProduitsFichier(){
     $fichier = "../data/stock.txt";
+    //Ouverture du fichier en mode écriture (pointeur en début de fichier)
     $open = fopen($fichier, "w+");
 
     //Vérification de l'ouverture du fichier
@@ -15,14 +16,16 @@ function exporterProduitsFichier(){
              fwrite($open,$cat.";".$produit['photo'].";".$produit['reference'].";".$produit['description'].";".$produit['prix'].";".$produit['stock']."\n");
             }
         }
-        fclose();
+        //Fermeture du fichier
+        fclose($open);
     } 
 }
 exporterProduitsFichier();
 
-
+//A Terminer
 function importerProduitsFichier(){
     $fichier = "../data/stock.txt";
+    //Ouverture du fichier le lecture seule
     $open = fopen($fichier, "r");
     $ligne = fgets($open);
 
