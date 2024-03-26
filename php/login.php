@@ -12,7 +12,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/login.js"></script>
     <title>Connexion</title>
 </head>
 
@@ -33,7 +32,7 @@
                 <button type="submit">Se connecter</button>
             </div>
             <div>
-                <a href="../html/Inscription.html">Pour vous inscrire cliquez ici</a>
+                <a href="../php/inscription.php">Pour vous inscrire cliquez ici</a>
             </div>
         </form>
     </main>

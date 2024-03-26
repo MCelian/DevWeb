@@ -11,7 +11,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/inscription.js"></script>
     <title>Lafleur : Inscription</title>
 </head>
 <body>
@@ -34,7 +33,7 @@
             <label><b>Prénom: </b></label>
             <input type="text" placeholder="Entrez votre prénom" name="surname" required>
             <br>
-                <td><label for="naissance">Date de naissance :</label></td>
+                <td><b><label for="naissance">Date de naissance :</label></b></td>
                 <td><input type="date" name="naissance" ></td>
             <br>
             <label><b>Adresse : </b></label>
@@ -56,6 +55,9 @@
             <button type="submit">Créer son compte</button>
         </div>
     </form>
+    <div>
+            <a href="../php/login.php">Si vous avez déjà un compte, cliquez ici</a>
+    </div>
 </main>
     <?php include('../html/footer.html'); ?>
 
