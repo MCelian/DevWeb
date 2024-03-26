@@ -18,7 +18,7 @@
 <body>
 <link rel="stylesheet" href="../css/style.css">
 <?php include('../html/header.html'); ?>
-<?php include('../html/nav.html'); ?>
+<?php include('../php/nav.php'); ?>
     <main>
         <form action="login.php" method="post">
             <h1>Bienvenue</h1>

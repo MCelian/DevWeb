@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-if(! isset($_SESSION['categorie'])) include('../php/varSession.inc.php');
+//if(! isset($_SESSION['categorie'])) 
+include('../php/varSession.inc.php');
 
 function afficherProduits($categorie){
     //récuperation des produits de la categorie voulue

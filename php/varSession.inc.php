@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+/******************
+* Tableau des produits *
+*******************/
 $_SESSION['categorie'] = array(
     'Bulbes' => array(
         array(
@@ -48,7 +51,7 @@ $_SESSION['categorie'] = array(
             'stock' => 10
         )
     ),
-    'Massif' => array(
+    'Plantes à Massif' => array(
         array(
             'photo' => '../img/massif_marguerite.jpg',
             'reference' => 'm01',
@@ -72,5 +75,7 @@ $_SESSION['categorie'] = array(
         )
     )
 );
+
+
 
 ?>

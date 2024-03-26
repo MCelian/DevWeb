@@ -16,7 +16,7 @@
 <body>
     <link rel="stylesheet" href="../css/style.css">
     <?php include('../html/header.html'); ?>
-    <?php include('../html/nav.html'); ?>
+    <?php include('../php/nav.php'); ?>
     <main>
     <form action="Inscription.php" method="post">
         <h1>Inscription</h1>  

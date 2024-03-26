@@ -9,7 +9,7 @@ A faire :
     -Vérification du formulaire de contact
     
 -PHP :
-    -Automatiser les menus
+    -Vérification du formulaire de contact
 
 Voici le projet de Dev Web pour notre Année d'ING1
 

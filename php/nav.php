@@ -1,12 +1,13 @@
+<?php
+    include('../php/affichageMenu.php');
+?>
 <nav>
     <ul>
         <h1>Sté Lafleur</h1>
         <li><a href="../php/index.php">Accueil</a></li>
         <hr>
         <h2>Nos produits</h2>
-        <li><a href="../php/produits.php?cat=Bulbes">Bulbes</a></li>
-        <li><a href="../php/produits.php?cat=Rosiers">Rosiers</a></li>
-        <li><a href="../php/produits.php?cat=Massif">Plantes à massif</a></li>
+        <?php afficherMenu(); ?>
         <h2>Aide</h2>
         <li><a href="../php/contact.php">Contact</a></li>
     </ul>

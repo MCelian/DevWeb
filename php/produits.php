@@ -18,7 +18,7 @@
 
 <body>
     <?php include("../html/header.html"); ?>
-    <?php include("../html/nav.html"); ?>
+    <?php include('../php/nav.php'); ?>
     <main>
         <!--Accueillir l'image dans un Popup -->
         <div id="popup-overlay">

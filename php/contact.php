@@ -17,7 +17,7 @@
 
 <body>
     <?php include('../html/header.html'); ?>
-    <?php include('../html/nav.html'); ?>
+    <?php include('../php/nav.php'); ?>
     <main>
         <h1>Demande de contact</h1>
         <form action="" method="post">
