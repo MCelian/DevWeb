@@ -1,6 +1,6 @@
 <?php
-    require "../php/stock.php";
     session_start();
+    include('../php/stock.php');
 ?>
 
 <!DOCTYPE html>

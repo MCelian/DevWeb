@@ -20,30 +20,5 @@ function exporterProduitsFichier(){
         fclose($open);
     } 
 }
-exporterProduitsFichier();
 
-//A Terminer
-function importerProduitsFichier(){
-    $fichier = "../data/stock.txt";
-    //Ouverture du fichier le lecture seule
-    $open = fopen($fichier, "r");
-    $ligne = fgets($open);
-
-    //Vérification de l'ouverture du fichier
-    if ($open != NULL){
-        //Lecture de chaque ligne du fichier
-        while($ligne != NULL){
-            //Séparation des données de la ligne
-            $donnee = explode(';', $ligne);
-
-
-            //A voir
-            foreach($mot as $elm){
-                
-            }
-        }
-    
-
-    }
-}
 ?>
