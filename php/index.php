@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if(!isset($_SESSION['caterogie'])) require('../php/varSession.inc.php');
+if(!isset($_SESSION['categorie'])) require('../php/varSession.inc.php');
 ?>
 
 <!DOCTYPE html>

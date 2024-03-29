@@ -7,4 +7,4 @@ Rosiers;../img/rosiers_arbuste.jpg;r03;Rosier arbuste;8;10
 Plantes à Massif;../img/massif_marguerite.jpg;m01;Lot de 3 marguerites;5;10
 Plantes à Massif;../img/massif_pensee.jpg;m02;Pour un bouquet de 6 pensées;6;10
 Plantes à Massif;../img/massif_melange.jpg;m03;Mélange varié de 10 plantes à massif;15;10
-Voltaire;../img/Voltaire.png;v01;Bot pour Voltaire;100;1
+Voltaire;../img/Voltaire.png;v01;Bot pour Voltaire;100;0

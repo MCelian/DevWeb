@@ -177,9 +177,17 @@ table th,td {
     padding: 0;
 }
 
+#contact td{
+    text-align: left;
+}
+
 #contact textarea{
     width: 500px;
     height: 200px;
+}
+
+.champVide{
+    border: 3px solid red;
 }
 
 /***********************

@@ -1,5 +1,5 @@
 <?php
-    include('../php/affichageMenu.php');
+    require('../php/data.php');
 ?>
 <nav>
     <ul>

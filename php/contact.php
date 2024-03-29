@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(! isset($_SESSION['categorie'])) include('../php/varSession.inc.php');
+    if(! isset($_SESSION['categorie'])) require('../php/varSession.inc.php');
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../img/icon.png">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/contact.js"></script>
+    <script src="../js/form.js"></script>
     <title>Lafleur : Contact</title>
 </head>
 
@@ -20,7 +20,7 @@
     <?php include('../php/nav.php'); ?>
     <main>
         <h1>Demande de contact</h1>
-        <form action="" method="post">
+        <form action="javascript:void(0)" method="post" id="contactForm" >
             <table id="contact">
                 <tr>
                     <td><label for="date">Date du contact :</label></td>
