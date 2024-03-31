@@ -84,7 +84,13 @@ function afficherProduits($cat){
         echo "<td>".$produit['description']."</td>";
         echo "<td>".$produit['prix']." €</td>";
         echo "<td class='stock'>".$produit['stock']."</td>";
-        echo "<td>
+
+        //Si il n'y a plus de stock, on informe le client
+        if($produit['stock'] == 0){
+            echo "<td>Produit en rupture de stock </td>";
+        }
+        else{ //Sinon le client peut choisir le produit
+            echo "<td>
                 <form action='' method='post'>
                     <input type='button' value='-' disabled onclick='retirerDuPanier(this)'>
                     <input type='text' value='0' readonly class='quantite-voulue'>
@@ -92,6 +98,7 @@ function afficherProduits($cat){
                     <input type='submit' value='Ajouter au panier' disabled>
                 </form>
                 </td>";
+        }
         echo "</tr>";
     }
     
@@ -104,10 +111,17 @@ function afficherProduits($cat){
 * Clients *
 **************/
 
-function ajouterClientFichier($sexe,$nom,$prenom,$naissance,$mail,$pwd){
+function exporterClientFichier($sexe,$nom,$prenom,$naissance,$mail,$pwd){
     $chemin = "../data/user.xml";
 
-    $fichier = new SimpleXMLElement('<clients></clients>');
+    //On vérifie si le fichier existe
+    if(file_exists($chemin)){
+        $fichier = simplexml_load_file($chemin);
+    }
+    else{ //Sinon on le créer
+        $fichier = new SimpleXMLElement('<clients></clients>');
+    }
+
     //on descend d'un niveau dans l'indentation
     $client = $fichier->addChild('client');
 
@@ -119,10 +133,38 @@ function ajouterClientFichier($sexe,$nom,$prenom,$naissance,$mail,$pwd){
     $client->addChild('mail', $mail);
     $client->addChild('pwd', $pwd);
 
+
     //Ecriture dans le fichier
-    echo $fichier->asXML($chemin);
+    $fichier->asXML($chemin);
 }
 
 
+/*********
+ * A voir si la fonction est utile
+ * Potentiel : si on créer un compte Admin
+ * probleme : sécurité
+ */
+function importerClientsFichier(){
+    $chemin = "../data/user.xml";
+
+    //Ouverture du fichier
+    $fichier = simplexml_load_file($chemin);
+
+    //Initialisation d'un tableau vide qui va accueillir les client
+    $clients = array();
+
+    foreach($fichier->client as $client){
+        $clients[] = array(
+            "sexe" => trim($client->sexe),
+            "nom" => trim($client->nom),
+            "prenom" => trim($client->prenom),
+            "naissance" => trim($client->naissance),
+            "mail" => trim($client->mail),
+            "password" => trim($client->pwd)
+        );
+    }
+
+    return $clients;
+}
 
 ?>
