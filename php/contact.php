@@ -21,7 +21,7 @@
     <main>
         <h1>Demande de contact</h1>
         <form action="" method="post" id="contactForm" >
-            <table id="contact">
+            <table id="contactTable">
                 <tr>
                     <td><label for="date">Date du contact :</label></td>
                     <td><input type="date" name="date" value="<?php echo date('Y-m-d'); ?>" readonly></td>
@@ -53,16 +53,16 @@
                 <tr>
                     <td><label for="fonction">Fonction :</label></td>
                     <td>
-                        <input type="text" name="fonction" list="fonction">
-                        <datalist type="text" id="fonction">
-                            <option value="enseignant">Enseignant</option>
-                            <option value="chomeur">Chômeur</option>
-                            <option value="fonctionnaire">Fonctionnaire</option>
-                            <option value="etudiant">Étudiant</option>
-                            <option value="cadre">Cadre</option>
-                            <option value="employe">Employé</option>
-                            <option value="autre">Autre</option>
-                        </datalist>
+                        <select name="fonction">
+                            <option value="default">-- Veuillez choisir une fonction --</option>
+                            <option value="Enseignant">Enseignant</option>
+                            <option value="Chomeur">Chômeur</option>
+                            <option value="Fonctionnaire">Fonctionnaire</option>
+                            <option value="Etudiant">Étudiant</option>
+                            <option value="Cadre">Cadre</option>
+                            <option value="Employe">Employé</option>
+                            <option value="Autre">Autre</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>

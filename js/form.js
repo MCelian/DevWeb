@@ -1,8 +1,10 @@
 //Fichier réservé pour la vérification des formulaire
 
 
+/*********
+ * Formulaire de Contact *
+ *********/
 
-// Formulaire de Contact
 function checkContact() {
     // Récupération des éléments du formulaire
     var contact = document.getElementById('contactForm');
@@ -13,15 +15,25 @@ function checkContact() {
 
     for (var i = 0; i < informations.length; i++) {
         var data = document.getElementsByName(informations[i]);
+
+        //Vérification d'aucune case soit vide
         if(!checkChampVide(data[0])){
             erreur = true;
         }
+        //Vérification du format de l'adresse mail
         if(informations[i] == 'email'){
             if(checkFormatEmail(data[0])){
                 erreur = true;
             }
         }
+        //Vérification qu'une fonction à été choisi
+        if(informations[i] == 'fonction'){
+            if(!checkFonctionVide(data[0])){
+                erreur = true;
+            }
+        }
     }
+    //Vérification qu'un sexe à été choisi
     if(!checkGenreVide(genre)){
         erreur = true;
     }
@@ -30,6 +42,42 @@ function checkContact() {
     return erreur ?  false : true;
 
 }
+
+/*********
+ * Formulaire de Connexion *
+ *********/
+
+function checkConnexion(){
+    // Récupération des éléments du formulaire
+    var login = document.getElementById('loginForm');
+    var erreur = false;
+
+    var informations = ['username', 'password'];
+    for(var i = 0; i < informations.length; i++){
+        var data = document.getElementsByName(informations[i]);
+
+        //Vérification d'aucune case soit vide
+        if(!checkChampVide(data[0])){
+            erreur = true;
+        }
+
+        if(informations[i] == 'username'){
+            if(checkFormatEmail(data[0])){
+                erreur = true;
+            }
+        }
+    }
+
+
+    //Return si le formulaire doit être envoyer ou pas
+    return erreur ?  false : true;
+}
+
+
+
+/*********
+ * Fonctions communes aux formulaires *
+ *********/
 
 // Vérifier si un champ est vide
 function checkChampVide(champ) {
@@ -78,8 +126,9 @@ function checkGenreVide(genre){
 
 //Vérifier si le format de l'adresse mail est valide
 function checkFormatEmail(email){
+    //Format d'un adresse mail valide
     var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-8
+
     if (!regexEmail.test(email.value)) {
         email.classList.add('champVide');
         var message = email.parentNode.querySelector('.messageErreur');
@@ -100,3 +149,28 @@ function checkFormatEmail(email){
         return true;
     }
 }
+
+
+//Vérifier si la case fonction a bien été choisi
+function checkFonctionVide(fonction){
+    if(fonction.value == 'default'){
+        fonction.classList.add('champVide');
+        var message = fonction.parentNode.querySelector('.messageErreur');
+        if(!message){
+            message = document.createElement('span');
+            message.classList.add('messageErreur');
+            message.textContent = "Champ Requis";
+            message.style.color = 'red';
+            fonction.parentNode.appendChild(message);  
+        }
+        return false;
+    } else {
+        fonction.classList.remove('champVide');
+        var message = fonction.parentNode.querySelector('.messageErreur');
+        if(message){
+            fonction.parentNode.removeChild(message);
+        }
+        return true;
+        }
+}
+

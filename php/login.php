@@ -1,7 +1,5 @@
 <?php
     session_start();
-
-    
 ?>
 
 
@@ -11,8 +9,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/icon.png">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Connexion</title>
+    <script src="../js/form.js"></script>
+    <title>Lafleur : Connexion</title>
 </head>
 
 <body>
@@ -20,17 +20,21 @@
 <?php include('../html/header.html'); ?>
 <?php include('../php/nav.php'); ?>
     <main>
-        <form action="login.php" method="post">
-            <h1>Bienvenue</h1>
-            <div id="formulaire">
-                <label><b>Identifiant : </b></label>
-                <input type="text" placeholder="Entrez votre identifiant" name="username" required>
-                <br>
-                <label><b>Mot de passe : </b></label>
-                <input type="password" placeholder="Entrez votre mot de passe" name="password" required>
-                <br>
-                <button type="submit">Se connecter</button>
-            </div>
+        <h1>Bienvenue</h1>
+        <form action="" method="post" id="loginForm">
+            <table id="loginTable">
+                <tr>
+                    <td><label for="username">Identifiant : </label></td>
+                    <td><input type="email" name="username" placeholder="monmail@monsite.org"></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Mot de passe : </label></td>
+                    <td><input type="password" name="password" placeholder="Entrez votre mot de passe"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Connexion" onclick="return checkConnexion()"></td>
+                </tr>
+            </table>
             <div>
                 <a href="../php/inscription.php">Pour vous inscrire cliquez ici</a>
             </div>

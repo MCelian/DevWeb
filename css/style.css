@@ -172,22 +172,35 @@ table th,td {
 * Mise en page du contact *
 *************************/
 
-#contact{
+#contactTable{
     width: 100%;
     padding: 0;
 }
 
-#contact td{
+#contactTable td{
     text-align: left;
 }
 
-#contact textarea{
+#contactTable textarea{
     width: 500px;
     height: 200px;
 }
 
 .champVide{
     border: 3px solid red;
+}
+
+/************************
+* Mise en page de Login *
+*************************/
+
+#loginTable{
+    width: 100%;
+    padding: 0;
+}
+
+#loginTable td{
+    text-align: left;
 }
 
 /***********************
