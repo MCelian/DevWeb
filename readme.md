@@ -1,15 +1,19 @@
 Bonjour,
 
+En Cours de Réalisation :
+    -Stockage des clients dans un fichier
+
 A faire :
 
 -CSS :
     -Mise en page général
 
 -Javascript :
-    -Vérification du formulaire de contact
+    -Terminé sauf si ajout de fonctionnalité
     
 -PHP :
     -Vérification du formulaire de contact
+    -Fonction d'envoi du mail de contact
 
 Voici le projet de Dev Web pour notre Année d'ING1
 

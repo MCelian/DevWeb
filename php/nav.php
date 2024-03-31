@@ -1,5 +1,5 @@
 <?php
-    require('../php/data.php');
+    include('../php/data.php');
 ?>
 <nav>
     <ul>

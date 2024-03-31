@@ -20,11 +20,11 @@
     <?php include('../php/nav.php'); ?>
     <main>
         <h1>Demande de contact</h1>
-        <form action="javascript:void(0)" method="post" id="contactForm" >
+        <form action="" method="post" id="contactForm" >
             <table id="contact">
                 <tr>
                     <td><label for="date">Date du contact :</label></td>
-                    <td><input type="date" name="date"></td>
+                    <td><input type="date" name="date" value="<?php echo date('Y-m-d'); ?>" readonly></td>
                 </tr>
                 <tr>
                     <td><label for="nom">Nom :</label></td>
@@ -48,7 +48,7 @@
                 </tr>
                 <tr>
                     <td><label for="naissance">Date de naissance :</label></td>
-                    <td><input type="date" name="naissance"></td>
+                    <td><input type="date" name="naissance" max="<?php echo date('Y-m-d'); ?>"></td>
                 </tr>
                 <tr>
                     <td><label for="fonction">Fonction :</label></td>
@@ -74,7 +74,7 @@
                     <td><textarea name="contenu" placeholder="Tapez ici votre mail"></textarea></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="submit" value="Envoyer" onclick="checkContact()"></td>
+                    <td colspan="2"><input type="submit" value="Envoyer" onclick="return checkContact()"></td>
                 </tr>
             </table>
         </form>
