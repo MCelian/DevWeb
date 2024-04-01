@@ -1,5 +1,6 @@
 <?php
     session_start();
+    if(! isset($_SESSION['categorie'])) require('../php/varSession.inc.php');
 ?>
 
 

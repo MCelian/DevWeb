@@ -186,7 +186,7 @@ table th,td {
     height: 200px;
 }
 
-.champVide{
+.erreurCase{
     border: 3px solid red;
 }
 
@@ -200,6 +200,19 @@ table th,td {
 }
 
 #loginTable td{
+    text-align: left;
+}
+
+/************************
+* Mise en page de l'Inscription *
+*************************/
+
+#inscriptionTable{
+    width: 100%;
+    padding: 0;
+}
+
+#inscriptionTable td{
     text-align: left;
 }
 

@@ -41,9 +41,9 @@
                 <tr>
                     <td><label for="genre">Genre :</label></td>
                     <td>
-                        <input type="radio" name="genre" value="Homme">Homme <br>
-                        <input type="radio" name="genre" value="Homme">Femme <br>
-                        <input type="radio" name="genre" value="Autre">Autre <br>
+                        <input type="radio" name="genre" value="Homme">Homme
+                        <input type="radio" name="genre" value="Homme">Femme
+                        <input type="radio" name="genre" value="Autre">Autre 
                     </td>
                 </tr>
                 <tr>
