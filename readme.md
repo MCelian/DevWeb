@@ -9,7 +9,7 @@ A faire :
     -Mise en page général
 
 -Javascript :
-    -Vérifier le formulaire d'inscription
+    -Terminé sauf idée d'amélioration
     
 -PHP :
     -Vérification du formulaire de contact
