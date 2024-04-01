@@ -20,3 +20,9 @@ Voici le projet de Dev Web pour notre Année d'ING1
 et le foudecytech alias matthias
 
 je me serais passé de cet info hein juste comme ça, à bon entendeur...
+
+
+Rappel :
+
+Pour lancer un session localhost sur Linux : php -S localhost:8080
+Puis dans votre navigateur taper : localhost:8080/php/index.php
