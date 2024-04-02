@@ -13,7 +13,19 @@
         </ul>
     </div>
     <div id="espaceClient">
-        <a href="../php/login.php">Connexion</a>
+        <?php if(!empty($_SESSION["user"])){
+            echo $_SESSION['user']['nom']." ".$_SESSION['user']['prenom'];
+            echo "<form action='form.php' method='post'>
+                    <input  type='submit' value='Se Déconnecter'>
+                    <input type='hidden' name='action' value='deconnexion'>
+                    </form>";  
+        }  
+        else{
+            echo "<form action='login.php' method='post'>
+                    <input  type='submit' value='Se Connecter'>
+                    </form>";
+        }
+        ?>
         <br>
         <a href="">Panier</a>
     </div>

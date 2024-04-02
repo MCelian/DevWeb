@@ -1,4 +1,4 @@
-//Fichier réservé pour la vérification des formulaire
+//Fichier réservé pour la vérification des formulaires
 
 
 /*********
@@ -21,7 +21,7 @@ function checkContact() {
         }
         //Vérification du format de l'adresse mail
         if(informations[i] == 'email'){
-            if(checkFormatEmail(data[0])){
+            if(!checkFormatEmail(data[0])){
                 erreur = true;
             }
         }
@@ -61,7 +61,7 @@ function checkConnexion(){
         }
 
         if(informations[i] == 'username'){
-            if(checkFormatEmail(data[0])){
+            if(!checkFormatEmail(data[0])){
                 erreur = true;
             }
         }
@@ -95,7 +95,7 @@ function checkInscription(){
         }
         //Vérification du format de l'adresse mail
         if(informations[i] == 'email'){
-            if(checkFormatEmail(data[0])){
+            if(!checkFormatEmail(data[0])){
                 erreur = true;
             }
         }

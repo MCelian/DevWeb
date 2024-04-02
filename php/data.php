@@ -132,6 +132,7 @@ function exporterClientFichier($sexe,$nom,$prenom,$naissance,$mail,$pwd){
     $client->addChild('naissance', $naissance);
     $client->addChild('mail', $mail);
     $client->addChild('pwd', $pwd);
+    $client->addChild('admin', "false");
 
 
     //Ecriture dans le fichier
@@ -160,10 +161,9 @@ function importerClientsFichier(){
             "prenom" => trim($client->prenom),
             "naissance" => trim($client->naissance),
             "mail" => trim($client->mail),
-            "password" => trim($client->pwd)
-        );
+            "password" => trim($client->pwd),
+            "admin" => trim($client->admin));
     }
-
     return $clients;
 }
 

@@ -1,2 +1,2 @@
 <?xml version="1.0"?>
-<clients><client><sexe>Homme</sexe><nom>Mignot</nom><prenom>C&#xE9;lian</prenom><naissance>03/30/2001</naissance><mail>mignotceli@cy-tech.fr</mail><pwd>mignotceli</pwd></client></clients>
+<clients><client><sexe>Homme</sexe><nom>Mignot</nom><prenom>C&#xE9;lian</prenom><naissance>03/30/2001</naissance><mail>mignotceli@cy-tech.fr</mail><pwd>mignotceli</pwd><admin>true</admin></client></clients>

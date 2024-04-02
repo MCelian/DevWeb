@@ -16,8 +16,7 @@
 </head>
 
 <body>
-    <link rel="stylesheet" href="../css/style.css">
-    <?php include('../html/header.html'); ?>
+    <?php include('../php/header.php'); ?>
     <?php include('../php/nav.php'); ?>
     <main>
         <h1>Inscription</h1>
@@ -56,6 +55,7 @@
                     <td><input type="password" name="confirmpwd" placeholder="Confirmez votre mot de passe"></td>
                 </tr>
                 <tr>
+                    <input type="hidden" name="action" value="inscription">
                     <td colspan="2"><input type="submit" value="Création du compte" onclick="return checkInscription()"></td>
                 </tr>
             </table>

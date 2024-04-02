@@ -16,7 +16,7 @@ if(!isset($_SESSION['categorie'])) require('../php/varSession.inc.php');
 </head>
 
 <body>
-    <?php include('../html/header.html'); ?>
+    <?php include('../php/header.php'); ?>
     <?php include('../php/nav.php'); ?>
     <main>
         <h1>"Dites-le avec Lafleur"</h1>

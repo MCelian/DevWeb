@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <?php include('../html/header.html'); ?>
+    <?php include('../php/header.php'); ?>
     <?php include('../php/nav.php'); ?>
     <main>
         <h1>Demande de contact</h1>
@@ -74,6 +74,7 @@
                     <td><textarea name="contenu" placeholder="Tapez ici votre mail"></textarea></td>
                 </tr>
                 <tr>
+                    <input type="hidden" name="action" value="contact">   
                     <td colspan="2"><input type="submit" value="Envoyer" onclick="return checkContact()"></td>
                 </tr>
             </table>

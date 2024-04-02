@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <?php include("../html/header.html"); ?>
+    <?php include("../php/header.php"); ?>
     <?php include('../php/nav.php'); ?>
     <main>
         <!--Accueillir l'image dans un Popup -->

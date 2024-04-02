@@ -1,5 +1,5 @@
 <?php
-    include('../php/data.php');
+include_once('../php/data.php');
 ?>
 <nav>
     <ul>

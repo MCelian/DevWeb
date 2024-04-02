@@ -17,12 +17,11 @@
 </head>
 
 <body>
-<link rel="stylesheet" href="../css/style.css">
-<?php include('../html/header.html'); ?>
+<?php include('../php/header.php'); ?>
 <?php include('../php/nav.php'); ?>
     <main>
         <h1>Bienvenue</h1>
-        <form action="" method="post" id="loginForm">
+        <form action="form.php" method="post" id="loginForm">
             <table id="loginTable">
                 <tr>
                     <td><label for="username">Identifiant : </label></td>
@@ -33,6 +32,7 @@
                     <td><input type="password" name="password" placeholder="Entrez votre mot de passe"></td>
                 </tr>
                 <tr>
+                    <input type="hidden" name="action" value="login">
                     <td colspan="2"><input type="submit" value="Connexion" onclick="return checkConnexion()"></td>
                 </tr>
             </table>
