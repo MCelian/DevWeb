@@ -1,7 +1,6 @@
 Bonjour,
 
 En Cours de Réalisation :
-    -Ajout d'un panier
 
 A faire :
 
@@ -14,6 +13,7 @@ A faire :
 -PHP :
     -Vérification du formulaire de contact
     -Fonction d'envoi du mail de contact
+    -Vider le panier (bouton)
 
 Voici le projet de Dev Web pour notre Année d'ING1
 
