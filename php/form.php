@@ -3,6 +3,8 @@
 
 session_start();
 
+include_once('../php/data.php');
+
 checkFormulaire();
 
 //Envoi de tous les formulaires à cette fonction
@@ -25,6 +27,9 @@ function checkFormulaire(){
                 break;
             case 'deconnexion':
                 DeconnexionClient();
+                break;
+            case 'panier':
+                ajouterProduitPanier();
                 break;
             default :
                 echo "default";
@@ -58,6 +63,10 @@ function checkConnexion(){
     return $erreur;
 }
 
+/*******************
+ * Compte *
+ *******************/
+
 function ConnexionClient(){
     $username = $_POST['username'];
     $pwd = $_POST['password'];
@@ -88,5 +97,6 @@ function DeconnexionClient(){
     session_destroy();
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
+
 
 ?>

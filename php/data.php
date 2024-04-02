@@ -91,10 +91,12 @@ function afficherProduits($cat){
         }
         else{ //Sinon le client peut choisir le produit
             echo "<td>
-                <form action='' method='post'>
+                <form action='form.php' method='post'>
                     <input type='button' value='-' disabled onclick='retirerDuPanier(this)'>
-                    <input type='text' value='0' readonly class='quantite-voulue'>
+                    <input type='text' value='0' readonly class='quantite-voulue' name='quantite'>
                     <input type='button' value='+' onclick='ajouterAuPanier(this)'> <br>
+                    <input type='hidden' name='action' value='panier'>
+                    <input type='hidden' name='reference' value=".$produit['reference'].">
                     <input type='submit' value='Ajouter au panier' disabled>
                 </form>
                 </td>";
@@ -106,6 +108,18 @@ function afficherProduits($cat){
     echo "<button onclick='afficherStock()' id='bouton-Stock'>Afficher/Masquer Stock</button>";
 }
 
+//Mise à jour du stock dans la variable de session
+function miseAJourStock($cat, $reference, $quantite){
+    // Parcours de chaque categorie
+    foreach($_SESSION['categorie'] as &$produits){
+        // Parcours de chaque produit dans la categorie
+        foreach($produits as &$produit){
+            if($produit['reference'] === $reference){
+                $produit['stock'] -= $quantite;
+            }
+        }
+    }
+}
 
 /************
 * Clients *
@@ -167,4 +181,31 @@ function importerClientsFichier(){
     return $clients;
 }
 
+/*******************
+ * Panier *
+ *******************/
+
+ function ajouterProduitPanier(){
+    //Récupération de la quantité voulue
+    $reference = $_POST['reference'];
+    $quantite = $_POST['quantite'];
+
+    //Si le panier n'existe pas
+    if(!isset($_SESSION['panier'])){
+        $_SESSION['panier'] = array();
+    }
+
+    //Si le panier n'est pas déja dans le panier
+    if(empty($_SESSION['panier'][$reference])){
+        $_SESSION['panier'][$reference] = $quantite;
+    }
+    else{ //Sinon on ajoute à la quantité du panier
+        $_SESSION['panier'][$reference] += $quantite;
+    }
+
+    miseAJourStock($categorie, $reference, $quantite);
+    
+    //On renvoie vers la page d'origine
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+ }
 ?>

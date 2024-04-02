@@ -1,7 +1,7 @@
 Bonjour,
 
 En Cours de Réalisation :
-    -Stockage des clients dans un fichier
+    -Ajout d'un panier
 
 A faire :
 
