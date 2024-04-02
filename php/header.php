@@ -27,6 +27,6 @@
         }
         ?>
         <br>
-        <a href="">Panier</a>
+        <a href="../php/panier.php">Panier</a>
     </div>
 </header>

@@ -121,6 +121,19 @@ function miseAJourStock($cat, $reference, $quantite){
     }
 }
 
+function trouverProduit($reference){
+    // Parcours de chaque categorie
+    foreach($_SESSION['categorie'] as &$produits){
+        // Parcours de chaque produit dans la categorie
+        foreach($produits as &$produit){
+            if($produit['reference'] ===  $reference){
+                return $produit;
+            }
+        }
+    }
+    return null;
+}
+
 /************
 * Clients *
 **************/
@@ -207,5 +220,44 @@ function importerClientsFichier(){
     
     //On renvoie vers la page d'origine
     header('Location: ' . $_SERVER['HTTP_REFERER']);
+ }
+
+
+ function afficherPanier(){
+    if(empty($_SESSION['panier'])){
+        echo "Le panier est vide<br>";
+    }
+    else{
+        $sommePanier= 0;
+        echo "<table>";
+        echo "<tr>
+            <th>Photo</th>
+            <th>Référence</th>
+            <th>Quantité</th>
+            <th>Prix unitaire</th>
+            <th>Prix total</th>
+            </tr>";
+            
+        foreach($_SESSION['panier'] as $reference => $quantite){
+            $produit = trouverProduit($reference);
+
+            if($produit != null){
+                echo "<tr>";
+                echo "<td><img src='".$produit['photo']."' class='photo-article' onclick='afficherImage(this)'></td>";
+                echo "<td>".$produit['reference']."</td>";
+                echo "<td>".$quantite."</td>";
+                echo "<td>".$produit['prix']." €</td>";
+                echo "<td>".$produit['prix']*$quantite." €</td>";
+                echo "</tr>";
+                $sommePanier += $produit['prix']*$quantite;
+            }
+            
+        }
+        echo "<tr>
+            <td colspan='3'></td>
+            <td colspan='2'>Prix Total : $sommePanier €</td>
+        </tr>";
+        echo "</table>";
+    }
  }
 ?>
