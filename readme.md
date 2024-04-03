@@ -1,7 +1,7 @@
 Bonjour,
 
 En Cours de Réalisation :
-    -Vider le panier (bouton)
+    -
 
 A faire :
 

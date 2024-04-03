@@ -35,6 +35,15 @@ function checkFormulaire(){
                 viderPanier();
                 echo "Panier vider";
                 break;
+            case 'validerPanier':
+                header('Location: ../php/ticket.php');
+                exit();
+                break;
+            case 'pagePrincipale':
+                echo "Retour à la page index";
+                header('Location: ../php/index.php');
+                exit();
+                break;
             default :
                 echo "default";
                 break;
@@ -46,6 +55,8 @@ function checkFormulaire(){
 /*********
  * Formulaire de Connexion *
  *********/
+
+ //Fonction en cours de réalisation
 function checkConnexion(){
     $erreur = false;
     

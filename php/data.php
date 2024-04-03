@@ -18,13 +18,14 @@ function importerProduitsFichier(){
     $fichier = "../data/stock.txt";
     //Ouverture du fichier le lecture seule
     $open = fopen($fichier, "r");
-    $ligne = fgets($open);
+    
 
     //Initialisation d'un tableau vide qui va accueillir les produits
     $cat = array();
 
     //Vérification de l'ouverture du fichier
     if ($open != NULL){
+        $ligne = fgets($open);
         //Lecture de chaque ligne du fichier
         while($ligne != NULL){
             //Séparation des données de la ligne
@@ -44,6 +45,9 @@ function importerProduitsFichier(){
     return $cat;
 }
 
+
+//Fonction pour exporter tout les produits vers un fichier
+//Option pour l'admin
 function exporterProduitsFichier(){
     $fichier = "../data/stock.txt";
     //Ouverture du fichier en mode écriture (pointeur en début de fichier)
@@ -85,6 +89,7 @@ function afficherProduits($cat){
         echo "<td>".$produit['prix']." €</td>";
         echo "<td class='stock'>".$produit['stock']."</td>";
 
+
         //Si il n'y a plus de stock, on informe le client
         if($produit['stock'] == 0){
             echo "<td>Produit en rupture de stock </td>";
@@ -105,7 +110,9 @@ function afficherProduits($cat){
     }
     
     echo "</table>";
-    echo "<button onclick='afficherStock()' id='bouton-Stock'>Afficher/Masquer Stock</button>";
+    if(estAdmin()){
+        echo "<button onclick='afficherStock()' id='bouton-Stock'>Afficher/Masquer Stock</button>";
+    }
 }
 
 //Mise à jour du stock dans la variable de session
@@ -132,6 +139,35 @@ function trouverProduit($reference){
         }
     }
     return null;
+}
+
+function miseAJourStockFichier($reference, $quantite){
+    $fichier = "../data/stock.txt";
+
+    //Ouverture du fichier
+    $open = fopen($fichier, "r+");
+    
+    if($open != NULL){
+        $ligne = fgets($open);
+        while($ligne != NULL){
+            //Décomposition de la ligne
+            $donnee = explode(';', $ligne);
+            if(trim($donnee[2]) == $reference){
+                $donnee[5] = intval($quantite);
+
+                //Reconstruction de la ligne
+                $ligneMaJ = implode(';', $donnee);
+                
+                //On replace le curseur en début de ligne
+                fseek($open, ftell($open) - strlen($ligne));
+
+                fwrite($open, $ligneMaJ);
+                
+            }
+            $ligne = fgets($open);
+        }
+        fclose($open);
+    }
 }
 
 /************
@@ -170,7 +206,6 @@ function exporterClientFichier($sexe,$nom,$prenom,$naissance,$mail,$pwd){
 /*********
  * A voir si la fonction est utile
  * Potentiel : si on créer un compte Admin
- * probleme : sécurité
  */
 function importerClientsFichier(){
     $chemin = "../data/user.xml";
@@ -192,6 +227,19 @@ function importerClientsFichier(){
             "admin" => trim($client->admin));
     }
     return $clients;
+}
+
+//Retourne si un client est un admin ou pas
+function estAdmin(){
+    if(!isset($_SESSION['user'])){
+        return false;
+    }
+    else{
+        if(boolval($_SESSION['user']['admin'])){
+            return true;
+        }
+        return false;
+    }
 }
 
 /*******************
@@ -263,9 +311,7 @@ function importerClientsFichier(){
         echo "<form action='form.php' method='post'>
         <input  type='submit' value='Vider le Panier'>
         <input type='hidden' name='action' value='viderPanier'>
-        </form>";  
-
-
+        </form>";
     }
  }
  //echo("<input type='button' value='Vider le panier'>")
@@ -282,6 +328,40 @@ function importerClientsFichier(){
 
     //On renvoie vers la page d'origine
     header('Location: ' . $_SERVER['HTTP_REFERER']);
+}
+
+function afficherTicket(){
+    if(!empty($_SESSION['panier'])){
+        $sommePanier= 0;
+        echo "<table>";
+        echo "<tr>
+            <th>Référence</th>
+            <th>Quantité</th>
+            <th>Prix unitaire</th>
+            <th>Prix total</th>
+            </tr>";
+        
+            foreach($_SESSION['panier'] as $reference => $quantite){
+                $produit = trouverProduit($reference);
+
+                if($produit != null){
+                    echo "<tr>";
+                    echo "<td>".$produit['reference']."</td>";
+                    echo "<td>".$quantite."</td>";
+                    echo "<td>".$produit['prix']." €</td>";
+                    echo "<td>".$produit['prix']*$quantite." €</td>";
+                    echo "</tr>";
+                    $sommePanier += $produit['prix']*$quantite;
+                    miseAJourStockFichier($produit['reference'],$produit['stock']);
+                }
+            }
+
+            echo "<tr>
+            <td colspan='2'></td>
+            <td colspan='2'>Prix Total : $sommePanier €</td>
+            </tr>";
+        echo "</table>";
+    }
 }
 ?>
 
