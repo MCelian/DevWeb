@@ -30,7 +30,7 @@
         <h1>Panier</h1>
         <?php   
         afficherPanier();
-        if(!empty($_SESSION["user"])){
+        if(!empty($_SESSION['user'])){
             echo "<form action='' method='post'>
                     <input  type='submit' value='Valider le Panier'>
                     <input type='hidden' name='action' value='validerPanier'>

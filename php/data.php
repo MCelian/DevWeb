@@ -109,7 +109,7 @@ function afficherProduits($cat){
 }
 
 //Mise à jour du stock dans la variable de session
-function miseAJourStock($cat, $reference, $quantite){
+function miseAJourStock($reference, $quantite){
     // Parcours de chaque categorie
     foreach($_SESSION['categorie'] as &$produits){
         // Parcours de chaque produit dans la categorie
@@ -208,15 +208,15 @@ function importerClientsFichier(){
         $_SESSION['panier'] = array();
     }
 
-    //Si le panier n'est pas déja dans le panier
+    //Ajoute au panier si l'article n'y est pas
     if(empty($_SESSION['panier'][$reference])){
         $_SESSION['panier'][$reference] = $quantite;
     }
-    else{ //Sinon on ajoute à la quantité du panier
+    else{ //Sinon on ajoute à la quantité déjà présente dans le panier
         $_SESSION['panier'][$reference] += $quantite;
     }
 
-    miseAJourStock($categorie, $reference, $quantite);
+    miseAJourStock( $reference, $quantite);
     
     //On renvoie vers la page d'origine
     header('Location: ' . $_SERVER['HTTP_REFERER']);
@@ -227,7 +227,7 @@ function importerClientsFichier(){
     if(empty($_SESSION['panier'])){
         echo "Le panier est vide<br>";
     }
-    else{
+    else{ //Le panier n'est pas vide
         $sommePanier= 0;
         echo "<table>";
         echo "<tr>
@@ -237,6 +237,7 @@ function importerClientsFichier(){
             <th>Prix unitaire</th>
             <th>Prix total</th>
             </tr>";
+
             
         foreach($_SESSION['panier'] as $reference => $quantite){
             $produit = trouverProduit($reference);
@@ -258,6 +259,29 @@ function importerClientsFichier(){
             <td colspan='2'>Prix Total : $sommePanier €</td>
         </tr>";
         echo "</table>";
+
+        echo "<form action='form.php' method='post'>
+        <input  type='submit' value='Vider le Panier'>
+        <input type='hidden' name='action' value='viderPanier'>
+        </form>";  
+
+
     }
  }
+ //echo("<input type='button' value='Vider le panier'>")
+ function viderPanier(){
+
+    //Ajoute au panier si l'article n'y est pas
+    foreach($_SESSION['panier'] as $reference => $quantite){
+
+    // le moins est pour remettre le stock au catalogue
+    miseAJourStock($reference, -$quantite);
+      
+    }
+    unset($_SESSION['panier']);
+
+    //On renvoie vers la page d'origine
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+}
 ?>
+

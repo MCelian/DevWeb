@@ -31,6 +31,10 @@ function checkFormulaire(){
             case 'panier':
                 ajouterProduitPanier();
                 break;
+            case 'viderPanier':
+                viderPanier();
+                echo "Panier vider";
+                break;
             default :
                 echo "default";
                 break;
@@ -62,6 +66,24 @@ function checkConnexion(){
 
     return $erreur;
 }
+
+
+/*********
+ * Formulaire de Connexion *
+ *********/
+
+/*function envoyerMail($date, $prenom, $nom,$mail, $genre, $naissance, $fonction , $sujet, $contenu){
+    $to = 'mignotceli@cy-tech.fr';
+
+    $headers = array(
+
+
+    );
+
+
+    mail($to, $sujet, )
+
+}*/
 
 /*******************
  * Compte *
