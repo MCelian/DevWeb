@@ -153,7 +153,7 @@ function miseAJourStockFichier($reference, $quantite){
             //Décomposition de la ligne
             $donnee = explode(';', $ligne);
             if(trim($donnee[2]) == $reference){
-                $donnee[5] = intval($quantite);
+                $donnee[5] = intval(trim($quantite));
 
                 //Reconstruction de la ligne
                 $ligneMaJ = implode(';', $donnee);
