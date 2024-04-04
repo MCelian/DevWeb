@@ -25,15 +25,35 @@
             <table id="loginTable">
                 <tr>
                     <td><label for="username">Identifiant : </label></td>
-                    <td><input type="email" name="username" placeholder="monmail@monsite.org"></td>
+                    <td>
+                        <?php
+                        if(!empty($_SESSION['erreurCase']['username'])){
+                            echo "<input class='defaultCase' type='email' name='username' placeholder='monmail@monsite.org'>";
+                        }
+                        else{
+                            echo "<input type='email' name='username' placeholder='monmail@monsite.org'>";
+                            echo "<span class='erreurEntree'>". $_SESSION['erreurConnexion']['username']."</span>";
+                        }
+                        ?>
+                    </td>
                 </tr>
                 <tr>
                     <td><label for="password">Mot de passe : </label></td>
-                    <td><input type="password" name="password" placeholder="Entrez votre mot de passe"></td>
+                    <td>
+                    <?php
+                        if(!empty($_SESSION['erreurCase']['password'])){
+                            echo "<input type='password' name='password' placeholder='Entrez votre nom de passe'>";
+                        }
+                        else{
+                            echo "<input class='erreurCase' type='password' name='password' placeholder='Entrez votre nom de passe'>";
+                        }
+                            echo "<span class='erreurEntree'>". $_SESSION['erreurConnexion']['password']."</span>";
+                        ?>
+                    </td>
                 </tr>
                 <tr>
                     <input type="hidden" name="action" value="login">
-                    <td colspan="2"><input type="submit" value="Connexion" onclick="return checkConnexion()"></td>
+                    <td colspan="2"><input type="submit" value="Connexion" onclick="//return checkConnexion()"></td>
                 </tr>
             </table>
             <div>

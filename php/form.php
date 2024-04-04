@@ -16,7 +16,7 @@ function checkFormulaire(){
         //Redirection vers le test de champ
         switch($choix){
             case 'login':
-                //checkConnexion();
+                checkConnexion();
                 ConnexionClient();
                 break;
             case 'inscription':
@@ -57,6 +57,7 @@ function checkFormulaire(){
  *********/
 
  //Fonction en cours de réalisation
+ //Ragerder comment faire apparaitre les erreurs dans la page contact
 function checkConnexion(){
     $erreur = false;
     
@@ -64,37 +65,74 @@ function checkConnexion(){
     //Informations à vérifier
     $informations = ['username', 'password'];
 
+    //Tableau d'informations des erreurs
+    $retour = ['',''];
+    
+
     foreach($informations as $data){
-        if(empty($_POST[$data])){
-            $erreur = true;
-        }
         if($data == 'username'){
             if(!filter_var($_POST[$data], FILTER_VALIDATE_EMAIL)){
                 $erreur = true;
+                $retour[$data] = 'Email Invalide';
             }
         }
+        if(empty($_POST[$data])){
+            $erreur = true;
+            $retour[$data] = 'Champ Requis';
+        }
+        else{
+            $retour['password'] = '';
+        }
     }
-
-    return $erreur;
+    if(!empty($retour)){
+         $_SESSION['erreurConnexion'] = $retour;
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit();
+    }
+    
+    return $retour;
 }
 
 
 /*********
- * Formulaire de Connexion *
+ * Envoi de mail *
  *********/
 
-/*function envoyerMail($date, $prenom, $nom,$mail, $genre, $naissance, $fonction , $sujet, $contenu){
+function envoyerMail($date, $prenom, $nom,$mail, $genre, $naissance, $fonction , $sujet, $contenu){
+    $obligatoire=['date','prenom','nom','mail','genre','naissance','sujet','contenu'];
+    foreach($informations as $data) {
+        if(empty($_POST[$data])){
+            $erreur = true;
+            $retour[$data] = 'Champ Requis';
+        }
+    }
+    
+    //mail destinataire
     $to = 'mignotceli@cy-tech.fr';
-
+    //entête du mail
     $headers = array(
-
-
+        'Date' => $date,
+        'From' => $mail,
+        'Reply-To' => $to,
+        'X-Mailer' => 'PHP/' . phpversion()
     );
+    //Formate le message
+    $contenu = wordwrap($contenu, 70, "\r\n");
 
+    $message=$prenom." ".$nom."\n".$genre."\n".$naissance."\n".$fonction."\n".$contenu;
+    
 
-    mail($to, $sujet, )
+    //Envoie le message
+    if(mail($to, $sujet,$message,$headers)){
+        $_SESSION['etatMail']="Message envoyé";
+    }else{ //Echec de l'envoie
+        $_SESSION['etatMail']="Echec de l'envoi, veuillez rééessayer ultérieurment";
+    }
+    
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit();
 
-}*/
+}
 
 /*******************
  * Compte *

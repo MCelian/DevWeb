@@ -1,6 +1,6 @@
 <header>
     <a href="../php/index.php">
-        <img src="../img/logo.jpg" alt="Logo du site" id="logo" onclick="">
+        <img src="../img/logo.jpg" alt="Logo du site" id="logo">
     </a>
     <div id="banderole">
         <h1 id="titre">Société Lafleur</h1>

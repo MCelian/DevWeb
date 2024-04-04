@@ -256,3 +256,11 @@ table th,td {
     color: white;
     float: right;
 }
+
+/***********************
+* Erreur de connexion *
+************************/
+
+.erreurEntree{
+    color: red;
+}

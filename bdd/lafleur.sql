@@ -1,0 +1,23 @@
+DROP DATABASE IF EXISTS lafleur;
+
+CREATE DATABASE lafleur;
+
+USE lafleur;
+
+CREATE TABLE IF NOT EXISTS Users(
+    sexe VARCHAR(6) NOT NULL,
+    nom VARCHAR(30) NOT NULL,
+    prenom VARCHAR(30) NOT NULL,
+    naissance DATE NOT NULL,
+    mail VARCHAR(50) NOT NULL
+    admin DEFAULT FALSE
+);
+
+CREATE TABLE IF NOT EXISTS Produits(
+    categorie VARCHAR(30) NOT NULL,
+    photo VARCHAR(50) NOT NULL,
+    reference VARCHAR(10) PRIMARY KEY NOT NULL,
+    description VARCHAR(500) NOT NULL,
+    prix FLOAT NOT NULL,
+    stock INT NOT NULL
+);
