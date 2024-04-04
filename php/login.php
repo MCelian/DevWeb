@@ -32,7 +32,7 @@
                         }
                         else{
                             echo "<input type='email' name='username' placeholder='monmail@monsite.org' class='erreurCase'>";
-                            echo "<span class='erreurEntree'>". $_SESSION['erreurConnexion']['username']."</span>";
+                            echo "<span class='messageErreur'>". $_SESSION['erreurConnexion']['username']."</span>";
                         }
                         ?>
                     </td>
@@ -46,14 +46,14 @@
                         }
                         else{
                             echo "<input class='erreurCase' type='password' name='password' placeholder='Entrez votre mot de passe'>";
-                            echo "<span class='erreurEntree'>". $_SESSION['erreurConnexion']['password']."</span>";
+                            echo "<span class='messageErreur'>". $_SESSION['erreurConnexion']['password']."</span>";
                         }
                         ?>
                     </td>
                 </tr>
                 <tr>
                     <input type="hidden" name="action" value="login">
-                    <td colspan="2"><input type="submit" value="Connexion" onclick="//return checkConnexion()"></td>
+                    <td colspan="2"><input type="submit" value="Connexion" onclick="return checkConnexion()"></td>
                 </tr>
             </table>
             <div>

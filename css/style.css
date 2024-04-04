@@ -261,6 +261,7 @@ table th,td {
 * Erreur de connexion *
 ************************/
 
-.erreurEntree{
+
+.messageErreur{
     color: red;
 }

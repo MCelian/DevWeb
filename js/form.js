@@ -139,7 +139,7 @@ function checkChampVide(champ) {
             message = document.createElement('span');
             message.classList.add('messageErreur');
             message.textContent = "Champ Requis";
-            message.style.color = 'red';
+            
             champ.parentNode.appendChild(message);  
         }
         return false;
@@ -161,7 +161,7 @@ function checkGenreVide(genre){
             message = document.createElement('span');
             message.classList.add('messageErreur');
             message.textContent = "Champ Requis";
-            message.style.color = 'red';
+            
             genre[0].parentNode.appendChild(message);
         }
         return false;
@@ -187,7 +187,7 @@ function checkFormatEmail(email){
             message = document.createElement('span');
             message.classList.add('messageErreur');
             message.textContent = "Format d'email invalide";
-            message.style.color = 'red';
+            
             email.parentNode.appendChild(message);
         }
         return false;
@@ -211,7 +211,7 @@ function checkFonctionVide(fonction){
             message = document.createElement('span');
             message.classList.add('messageErreur');
             message.textContent = "Champ Requis";
-            message.style.color = 'red';
+            
             fonction.parentNode.appendChild(message);  
         }
         return false;
@@ -238,8 +238,7 @@ function checkForcePwd(pwd){
         if (!message) {
             message = document.createElement('span');
             message.classList.add('messageErreur');
-            message.textContent = "Le mot de passe doit contenir au moins 8 caractères avec une majuscule, une minuscule, un chiffre et un caractère spécial ";
-            message.style.color = 'red';
+            message.textContent = "Le mot de passe doit contenir au moins 8 caractères avec une majuscule, une minuscule, un chiffre et un caractère spécial ";        
             pwd.parentNode.appendChild(message);
         }
         return false;
@@ -264,7 +263,6 @@ function checkConfirmPwd(){
             message = document.createElement('span');
             message.classList.add('messageErreur');
             message.textContent = "Mot de passe différent";
-            message.style.color = "red";
             confirmpwd[0].parentNode.appendChild(message);
         }
         return false;
@@ -292,7 +290,7 @@ function checkNaissance(naissance) {
             message = document.createElement('span');
             message.classList.add('messageErreur');
             message.textContent = "Date invalide";
-            message.style.color = 'red';
+            
             naissance.parentNode.appendChild(message);
         }
         return false;
