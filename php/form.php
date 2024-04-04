@@ -99,13 +99,6 @@ function checkConnexion(){
  *********/
 
 function envoyerMail($date, $prenom, $nom,$mail, $genre, $naissance, $fonction , $sujet, $contenu){
-    $obligatoire=['date','prenom','nom','mail','genre','naissance','sujet','contenu'];
-    foreach($informations as $data) {
-        if(empty($_POST[$data])){
-            $erreur = true;
-            $retour[$data] = 'Champ Requis';
-        }
-    }
     
     //mail destinataire
     $to = 'mignotceli@cy-tech.fr';
@@ -117,16 +110,14 @@ function envoyerMail($date, $prenom, $nom,$mail, $genre, $naissance, $fonction ,
         'X-Mailer' => 'PHP/' . phpversion()
     );
     //Formate le message
-    $contenu = wordwrap($contenu, 70, "\r\n");
-
-    $message=$prenom." ".$nom."\n".$genre."\n".$naissance."\n".$fonction."\n".$contenu;
+    $message="Prénom Nom :$prenom $nom\nGenre : $genre\nDate de naissance : $naissance\nFonction : $fonction\n$contenu";
     
 
     //Envoie le message
     if(mail($to, $sujet,$message,$headers)){
         $_SESSION['etatMail']="Message envoyé";
     }else{ //Echec de l'envoie
-        $_SESSION['etatMail']="Echec de l'envoi, veuillez rééessayer ultérieurment";
+        $_SESSION['etatMail']="Echec de l'envoi, veuillez rééessayer ultérieurement (Nous avons pas de serveur mail)";
     }
     
     header('Location: ' . $_SERVER['HTTP_REFERER']);

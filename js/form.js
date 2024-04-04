@@ -93,6 +93,11 @@ function checkInscription(){
         if(!checkChampVide(data[0])){
             erreur = true;
         }
+        if(informations[i] == 'naissance'){
+            if(!checkNaissance(data[0])){
+                erreur = true;
+            }
+        }
         //Vérification du format de l'adresse mail
         if(informations[i] == 'email'){
             if(!checkFormatEmail(data[0])){
@@ -102,7 +107,7 @@ function checkInscription(){
 
         //Vérifier la force du mot de passe
         if(informations[i] == 'pwd'){
-            if(checkForcePwd(data[0])){
+            if(!checkForcePwd(data[0])){
                 erreur = true;
             }
         }
@@ -252,7 +257,7 @@ function checkForcePwd(pwd){
 function checkConfirmPwd(){
     var pwd = document.getElementsByName('pwd');
     var confirmpwd = document.getElementsByName('confirmpwd');
-    if(pwd[0].value != confirmpwd[0].value){
+    if(pwd[0].value.trim() != confirmpwd[0].value.trim()){
         confirmpwd[0].classList.add('erreurCase');
         var message = confirmpwd[0].parentNode.querySelector('.messageErreur');
         if(!message){
@@ -274,3 +279,35 @@ function checkConfirmPwd(){
     }
 }
 
+//Vérifier si la date de naissance n'est pas dans le futur
+function checkNaissance(naissance) {
+    if(naissance.value !=''){
+        var date = new Date().toISOString().slice(0,10);
+        //Convertion de la date au format Y-m-d
+        var dateNaissance = new Date(naissance.value).toISOString().slice(0,10);
+    if(dateNaissance > date ){
+        naissance.classList.add('erreurCase');
+        var message = naissance.parentNode.querySelector('.messageErreur');
+        if (!message) {
+            message = document.createElement('span');
+            message.classList.add('messageErreur');
+            message.textContent = "Date invalide";
+            message.style.color = 'red';
+            naissance.parentNode.appendChild(message);
+        }
+        return false;
+    }
+    else{
+        naissance.classList.remove('erreurCase');
+        var message = naissance.parentNode.querySelector('.messageErreur');
+        if (message != null) {
+            naissance.parentNode.removeChild(message);
+        }
+        return true;
+    } 
+    }
+    else{
+        return false;
+    }
+    
+}

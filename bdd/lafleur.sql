@@ -9,7 +9,8 @@ CREATE TABLE IF NOT EXISTS Users(
     nom VARCHAR(30) NOT NULL,
     prenom VARCHAR(30) NOT NULL,
     naissance DATE NOT NULL,
-    mail VARCHAR(50) NOT NULL
+    mail VARCHAR(50) NOT NULL,
+    Mdp VARCHAR(50) NOT NULL,
     admin DEFAULT FALSE
 );
 

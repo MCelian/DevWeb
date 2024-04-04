@@ -27,11 +27,11 @@
                     <td><label for="username">Identifiant : </label></td>
                     <td>
                         <?php
-                        if(!empty($_SESSION['erreurCase']['username'])){
-                            echo "<input class='defaultCase' type='email' name='username' placeholder='monmail@monsite.org'>";
+                        if(empty($_SESSION['erreurConnexion']['username'])){
+                            echo "<input type='email' name='username' placeholder='monmail@monsite.org'>";
                         }
                         else{
-                            echo "<input type='email' name='username' placeholder='monmail@monsite.org'>";
+                            echo "<input type='email' name='username' placeholder='monmail@monsite.org' class='erreurCase'>";
                             echo "<span class='erreurEntree'>". $_SESSION['erreurConnexion']['username']."</span>";
                         }
                         ?>
@@ -41,13 +41,13 @@
                     <td><label for="password">Mot de passe : </label></td>
                     <td>
                     <?php
-                        if(!empty($_SESSION['erreurCase']['password'])){
-                            echo "<input type='password' name='password' placeholder='Entrez votre nom de passe'>";
+                        if(empty($_SESSION['erreurConnexion']['password'])){
+                            echo "<input type='password' name='password' placeholder='Entrez votre mot de passe'>";
                         }
                         else{
-                            echo "<input class='erreurCase' type='password' name='password' placeholder='Entrez votre nom de passe'>";
-                        }
+                            echo "<input class='erreurCase' type='password' name='password' placeholder='Entrez votre mot de passe'>";
                             echo "<span class='erreurEntree'>". $_SESSION['erreurConnexion']['password']."</span>";
+                        }
                         ?>
                     </td>
                 </tr>

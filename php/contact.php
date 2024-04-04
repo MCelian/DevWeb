@@ -21,7 +21,7 @@
     <?php include('../php/nav.php'); ?>
     <main>
         <h1>Demande de contact</h1>
-        <form action="" method="post" id="contactForm" >
+        <form action="form.php" method="post" id="contactForm" >
             <table id="contactTable">
                 <tr>
                     <td><label for="date">Date du contact :</label></td>
@@ -76,7 +76,15 @@
                 </tr>
                 <tr>
                     <input type="hidden" name="action" value="contact">   
-                    <td colspan="2"><input type="submit" value="Envoyer" onclick="return checkContact()"></td>
+                    <td colspan="2">
+                        <input type="submit" value="Envoyer" onclick="return checkContact()">
+                        <?php
+                            if(!empty($_SESSION['etatMail'])){
+                                echo "<span>". $_SESSION['etatMail']."</span>";
+                                unset($_SESSION['etatMail']);
+                            }
+                        ?>
+                    </td>
                 </tr>
             </table>
         </form>
