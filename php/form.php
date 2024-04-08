@@ -16,8 +16,13 @@ function checkFormulaire(){
         //Redirection vers le test de champ
         switch($choix){
             case 'login':
-                checkConnexion();
-                ConnexionClient();
+                if(checkConnexion()){
+                    header('Location: ' . $_SERVER['HTTP_REFERER']);
+                    exit();
+                }else{
+                    ConnexionClient();
+                }
+                //var_dump(checkConnexion());
                 break;
             case 'inscription':
                 echo "inscription";
@@ -58,41 +63,33 @@ function checkFormulaire(){
 
  //Fonction en cours de réalisation
  //Ragerder comment faire apparaitre les erreurs dans la page contact
-function checkConnexion(){
+ function checkConnexion(){
     $erreur = false;
     
-
-    //Informations à vérifier
+    // Informations à vérifier
     $informations = ['username', 'password'];
 
-    //Tableau d'informations des erreurs
-    $retour = ['',''];
+    // Tableau d'informations des erreurs
+    $retour = array();
     
-
     foreach($informations as $data){
-        if($data == 'username'){
-            if(!filter_var($_POST[$data], FILTER_VALIDATE_EMAIL)){
-                $erreur = true;
-                $retour[$data] = 'Email Invalide';
-            }
-        }
         if(empty($_POST[$data])){
             $erreur = true;
-            $retour[$data] = 'Champ Requis';
-        }
-        else{
-            $retour['password'] = '';
+            $retour[$data] = "Champ vide";
+        } elseif($data == 'username'){
+            if(!filter_var($_POST[$data], FILTER_VALIDATE_EMAIL)){
+                $erreur = true;
+                $retour[$data] = "Email invalide";
+            }
         }
     }
+
     if(!empty($retour)){
-         $_SESSION['erreurConnexion'] = $retour;
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        exit();
+        $_SESSION['erreurConnexion'] = $retour;
     }
     
-    return $retour;
+    return $erreur;
 }
-
 
 /*********
  * Envoi de mail *
@@ -135,7 +132,7 @@ function ConnexionClient(){
 
     $chemin = '../data/user.xml';
 
-    echo "$username et $pwd";
+    echo "$username et $pwd\n";
     //Ouverture du fichier
     $fichier = simplexml_load_file($chemin);
 
@@ -153,11 +150,16 @@ function ConnexionClient(){
             exit();
         }
     }
+
+    //Aucun client n'a été identifié
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit();
 }
 
 function DeconnexionClient(){
     session_destroy();
     header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit();
 }
 
 

@@ -21,7 +21,7 @@
 <?php include('../php/nav.php'); ?>
     <main>
         <h1>Bienvenue</h1>
-        <form action="form.php" method="post" id="loginForm">
+        <form action="form.php" method="POST" id="loginForm">
             <table id="loginTable">
                 <tr>
                     <td><label for="username">Identifiant : </label></td>
@@ -33,6 +33,7 @@
                         else{
                             echo "<input type='email' name='username' placeholder='monmail@monsite.org' class='erreurCase'>";
                             echo "<span class='messageErreur'>". $_SESSION['erreurConnexion']['username']."</span>";
+                            unset($_SESSION['erreurConnexion']['username']);
                         }
                         ?>
                     </td>
@@ -47,13 +48,14 @@
                         else{
                             echo "<input class='erreurCase' type='password' name='password' placeholder='Entrez votre mot de passe'>";
                             echo "<span class='messageErreur'>". $_SESSION['erreurConnexion']['password']."</span>";
+                            unset($_SESSION['erreurConnexion']['password']);
                         }
                         ?>
                     </td>
                 </tr>
                 <tr>
                     <input type="hidden" name="action" value="login">
-                    <td colspan="2"><input type="submit" value="Connexion" onclick="return checkConnexion()"></td>
+                    <td colspan="2"><input type="submit" value="Connexion" onclick="//return checkConnexion()"></td>
                 </tr>
             </table>
             <div>

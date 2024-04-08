@@ -32,8 +32,9 @@ function importerProduitsFichier(){
             $donnee = explode(';', $ligne);
             $categorie = $donnee[0];
             $cat[$categorie][]= array(
+                'categorie' => $categorie,
                 'photo' => trim($donnee[1]),
-                'reference' => trim($donnee[2]),
+                'reference' => trim($donnee[2]),    
                 'description' => trim($donnee[3]),
                 'prix' => floatval(trim($donnee[4])),
                 'stock' => intval(trim($donnee[5]))  
@@ -47,7 +48,7 @@ function importerProduitsFichier(){
 
 
 //Fonction pour exporter tout les produits vers un fichier
-//Option pour l'admin
+//Option pour l'admin 
 function exporterProduitsFichier(){
     $fichier = "../data/stock.txt";
     //Ouverture du fichier en mode écriture (pointeur en début de fichier)
@@ -65,7 +66,6 @@ function exporterProduitsFichier(){
         fclose($open);
     } 
 }
-
 
 function afficherProduits($cat){
     // Récupération des produits de la catégorie voulue
@@ -170,6 +170,28 @@ function miseAJourStockFichier($reference, $quantite){
     }
 }
 
+//Ecrire une requete SQL dans le fichier lafleurdata.sql
+function requeteProduitToSQL($produit){
+    $fichier ="../bdd/lafleurdata.sql";
+
+    $open = fopen($fichier, "a");
+    if($open != NULL){
+        $donnee ="'". $produit['categorie']."','".$produit['photo']."','".$produit['reference']."','".$produit['description']."',".$produit['prix'].",".$produit['stock'];
+        $requete = "INSERT INTO Produits VALUES(".$donnee.");\n";
+        fwrite($open, $requete);
+        fclose($open);
+    }
+}
+
+//Ecrire toutes les requetes
+function requeteAllProduitToSQL(){
+    foreach($_SESSION['categorie'] as $cat => $produits){
+        foreach($produits as $produit){
+         //Ecriture dans le fichier de chaque produit
+         requeteProduitToSQL($produit);
+        }
+    }
+}
 /************
 * Clients *
 **************/
