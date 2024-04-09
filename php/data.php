@@ -172,6 +172,16 @@ function miseAJourStockFichier($reference, $quantite){
     }
 }
 
+function miseAJourStockBDD($reference, $quantite){
+    //Accès à la base de données
+    $dbh = new PDO('mysql:host=127.0.0.1;port=3306;dbname=lafleur','root', 'Cytech0001!');
+
+    $reponse = $dbh->query("UPDATE Produits SET stock ='$quantite' WHERE reference LIKE '$reference'");
+    
+    //Fermeture de la base de données
+    $dbh = null;
+}
+
 //Ecrire une requete SQL dans le fichier lafleurdata.sql
 function requeteProduitToSQL($produit){
     $fichier ="../bdd/lafleurdata.sql";
@@ -220,6 +230,9 @@ function importerProduitsBDD(){
             );
         }
     }
+
+    //Fermeture de la base de données
+    $dbh = null;
 
     return $cat;
 }
@@ -405,7 +418,7 @@ function afficherTicket(){
                     echo "<td>".$produit['prix']*$quantite." €</td>";
                     echo "</tr>";
                     $sommePanier += $produit['prix']*$quantite;
-                    miseAJourStockFichier($produit['reference'],$produit['stock']);
+                    miseAJourStockBDD($produit['reference'],$produit['stock']);
                 }
             }
 
@@ -414,6 +427,9 @@ function afficherTicket(){
             <td colspan='2'>Prix Total : $sommePanier €</td>
             </tr>";
         echo "</table>";
+        
+        //On vide la panier
+        unset($_SESSION['panier']);
     }
 }
 ?>
