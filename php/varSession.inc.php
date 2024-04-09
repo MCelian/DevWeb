@@ -2,7 +2,7 @@
 
 session_start();
 
-include('../php/data.php');
+include('../bdd/bdd.php');
 
 /******************
 * Tableau des produits *

@@ -16,7 +16,6 @@ A faire :
     -Fonction d'envoi du mail de contact
 
 BDD : 
-    -Mettre à jour le stock
     -Fonction qui ajoute un client à la base
     -Modifie la fonction ConnexionClient() pour qu'elle regarde la base
     -

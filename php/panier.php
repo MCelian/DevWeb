@@ -30,12 +30,15 @@
         <h1>Panier</h1>
         <?php   
         afficherPanier();
-        if(!empty($_SESSION['user'])){
+        if(!empty($_SESSION['user']) && !empty($_SESSION['panier'])){
             echo "<form action='form.php' method='post'>
                     <input  type='submit' value='Valider le Panier'>
                     <input type='hidden' name='action' value='validerPanier'>
                     </form>";  
         }  
+        elseif(empty($_SESSION['panier'])){
+            echo "Le panier est vide";
+        }
         else{
             echo "Merci de vous connecter pour valider le panier";
         }

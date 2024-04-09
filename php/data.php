@@ -1,5 +1,7 @@
 <?php
 
+include_once('../bdd/bdd.php');
+
 /***********
 * Menu *
 ************/
@@ -171,71 +173,6 @@ function miseAJourStockFichier($reference, $quantite){
         fclose($open);
     }
 }
-
-function miseAJourStockBDD($reference, $quantite){
-    //Accès à la base de données
-    $dbh = new PDO('mysql:host=127.0.0.1;port=3306;dbname=lafleur','root', 'Cytech0001!');
-
-    $reponse = $dbh->query("UPDATE Produits SET stock ='$quantite' WHERE reference LIKE '$reference'");
-    
-    //Fermeture de la base de données
-    $dbh = null;
-}
-
-//Ecrire une requete SQL dans le fichier lafleurdata.sql
-function requeteProduitToSQL($produit){
-    $fichier ="../bdd/lafleurdata.sql";
-
-    $open = fopen($fichier, "a");
-    if($open != NULL){
-        $donnee ="'". $produit['categorie']."','".$produit['photo']."','".$produit['reference']."','".$produit['description']."',".$produit['prix'].",".$produit['stock'];
-        $requete = "INSERT INTO Produits VALUES(".$donnee.");\n";
-        fwrite($open, $requete);
-        fclose($open);
-    }
-}
-
-//Ecrire toutes les requetes
-function requeteAllProduitToSQL(){
-    foreach($_SESSION['categorie'] as $cat => $produits){
-        foreach($produits as $produit){
-         //Ecriture dans le fichier de chaque produit
-         requeteProduitToSQL($produit);
-        }
-    }
-}
-
-
-//Récupère tous les produits dans la BDD
-function importerProduitsBDD(){
-
-    //Initialisation d'un tableau vide qui va accueillir les produits
-    $cat = array();
-
-    //Accès à la base de données
-    $dbh = new PDO('mysql:host=127.0.0.1;port=3306;dbname=lafleur','root', 'Cytech0001!');
-
-    $reponse = $dbh->query('SELECT * FROM `Produits`');
-    if($reponse->rowCount() > 0){
-        $all = $reponse->fetchAll();
-        foreach($all as $ligne){
-            $categorie = $ligne[0];
-            $cat[$categorie][]= array(
-                'categorie' => $categorie,
-                'photo' => trim($ligne[1]),
-                'reference' => trim($ligne[2]),    
-                'description' => trim($ligne[3]),
-                'prix' => floatval(trim($ligne[4])),
-                'stock' => intval(trim($ligne[5]))  
-            );
-        }
-    }
-
-    //Fermeture de la base de données
-    $dbh = null;
-
-    return $cat;
-}
 /************
 * Clients *
 **************/
@@ -338,10 +275,8 @@ function estAdmin(){
 
 
  function afficherPanier(){
-    if(empty($_SESSION['panier'])){
-        echo "Le panier est vide<br>";
-    }
-    else{ //Le panier n'est pas vide
+    if(!empty($_SESSION['panier'])){
+         //Le panier n'est pas vide
         $sommePanier= 0;
         echo "<table>";
         echo "<tr>
