@@ -27,3 +27,8 @@ Rappel :
 
 Pour lancer un session localhost sur Linux : php -S localhost:8080
 Puis dans votre navigateur taper : localhost:8080/php/index.php
+
+Attention :
+
+On ne peut pas accéder à mysql sans mot de passe, J'ai donc mis le mien
+Cytech0001 , Célian

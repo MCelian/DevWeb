@@ -47,6 +47,8 @@ function importerProduitsFichier(){
 }
 
 
+
+
 //Fonction pour exporter tout les produits vers un fichier
 //Option pour l'admin 
 function exporterProduitsFichier(){
@@ -191,6 +193,35 @@ function requeteAllProduitToSQL(){
          requeteProduitToSQL($produit);
         }
     }
+}
+
+
+//Récupère tous les produits dans la BDD
+function importerProduitsBDD(){
+
+    //Initialisation d'un tableau vide qui va accueillir les produits
+    $cat = array();
+
+    //Accès à la base de données
+    $dbh = new PDO('mysql:host=127.0.0.1;port=3306;dbname=lafleur','root', 'Cytech0001!');
+
+    $reponse = $dbh->query('SELECT * FROM `Produits`');
+    if($reponse->rowCount() > 0){
+        $all = $reponse->fetchAll();
+        foreach($all as $ligne){
+            $categorie = $ligne[0];
+            $cat[$categorie][]= array(
+                'categorie' => $categorie,
+                'photo' => trim($ligne[1]),
+                'reference' => trim($ligne[2]),    
+                'description' => trim($ligne[3]),
+                'prix' => floatval(trim($ligne[4])),
+                'stock' => intval(trim($ligne[5]))  
+            );
+        }
+    }
+
+    return $cat;
 }
 /************
 * Clients *

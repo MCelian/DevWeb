@@ -7,5 +7,5 @@ include('../php/data.php');
 /******************
 * Tableau des produits *
 *******************/
-$_SESSION['categorie'] = importerProduitsFichier();
+$_SESSION['categorie'] = importerProduitsBDD();
 ?>
