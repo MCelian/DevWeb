@@ -35,12 +35,12 @@ function requeteProduitToSQL($produit) {
         "','".$produit['description'].
         "',".$produit['prix'].
         ",".$produit['stock'];
-        $requete = "INSERT INTO Produits VALUES(".$donnee.
-        ");\n";
+        $requete = "INSERT INTO Produits VALUES(".$donnee.");\n";
         fwrite($open, $requete);
         fclose($open);
     }
 }
+
 
 //Ecrire toutes les requetes
 function requeteAllProduitToSQL() {
