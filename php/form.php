@@ -9,6 +9,7 @@ checkFormulaire();
 
 //Envoi de tous les formulaires à cette fonction
 function checkFormulaire(){
+    
     //Vérification de la récupartion du type de formulaire
     if(isset($_POST['action'])){
         $choix = $_POST['action'];
@@ -25,10 +26,76 @@ function checkFormulaire(){
                 //var_dump(checkConnexion());
                 break;
             case 'inscription':
-                echo "inscription";
+            
+                if(checkConnexion()){
+                    header('Location: ' . $_SERVER['HTTP_REFERER']);
+                // Informations à vérifier
+                $informations = ['genre', 'nom', 'prenom', 'naissance', 'email', 'pwd', 'confirmpwd'];
+
+                // Tableau d'informations des erreurs
+                $retour = array();
+
+                foreach($informations as $data){
+                    if(empty($_POST[$data])){
+                        $retour[$data] = " Champ vide";
+                    } elseif($data == 'email'){ //penser à remplir les différents types d'erreurs (si il y en a d'autres)
+                        if(!filter_var($_POST[$data], FILTER_VALIDATE_EMAIL)){
+                            $retour[$data] = " Email invalide";
+                        }
+                    }
+                    elseif($data == 'confirmpwd'){
+                        if($_POST['pwd'] != $_POST['confirmpwd']){
+                            $retour[$data] = " Le mot de passe doit être le même que celui renseigné!";
+                        }
+                    }
+                }
+
+                if(!empty($retour)){
+                    $_SESSION['erreurInscription'] = $retour;
+                }
+                exit();
+            }
+
+            else{
+                ConnexionClient();
+            }
+
                 break;
             case 'contact':
-                echo "contact";
+
+            if(checkConnexion()){
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
+                    
+
+                // Informations à vérifier
+                $informations = ['nom', 'prenom', 'email', 'genre', 'naissance', 'fonction', 'sujet', 'contenu'];
+
+                // Tableau d'informations des erreurs
+                $retour = array();
+
+                foreach($informations as $data){
+                    if(empty($_POST[$data])){
+                        $retour[$data] = " Champ vide";
+                    } elseif($data == 'email'){ //penser à remplir les différents types d'erreurs (si il y en a d'autres)
+                        if(!filter_var($_POST[$data], FILTER_VALIDATE_EMAIL)){
+                            $retour[$data] = " Email invalide";
+                        }
+                    }
+                    elseif($data == 'fonction' && $_POST['fonction'] == 'default'){
+                        $retour[$data] = " Champ vide";
+                    }
+                }
+
+                if(!empty($retour)){
+                    $_SESSION['erreurContact'] = $retour;
+                }
+                exit();
+            }
+
+            else{
+                ConnexionClient();
+            }
+
                 break;
             case 'deconnexion':
                 DeconnexionClient();
@@ -75,11 +142,11 @@ function checkFormulaire(){
     foreach($informations as $data){
         if(empty($_POST[$data])){
             $erreur = true;
-            $retour[$data] = "Champ vide";
+            $retour[$data] = " Champ vide";
         } elseif($data == 'username'){
             if(!filter_var($_POST[$data], FILTER_VALIDATE_EMAIL)){
                 $erreur = true;
-                $retour[$data] = "Email invalide";
+                $retour[$data] = " Email invalide";
             }
         }
     }
