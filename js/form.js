@@ -309,3 +309,17 @@ function checkNaissance(naissance) {
     }
     
 }
+
+
+//Ajouter un produits au panier AJAX
+/*function AjouterProduitPanierAjax(bouton){
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange=function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var stock=bouton.closest('tr').querySelector('.stock');;
+        }
+      };
+      xhttp.open("POST", "form.php", true);
+      xhttp.send();
+}*/

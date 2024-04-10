@@ -12,7 +12,7 @@ A faire :
     -Terminé sauf idée d'amélioration
     
 -PHP :
-    -Vérification du formulaire de contact
+
 
 BDD : 
     -Fonction qui ajoute un client à la base

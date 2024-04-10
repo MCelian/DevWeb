@@ -93,14 +93,13 @@ function afficherProduits($cat){
         echo "<td>".$produit['prix']." €</td>";
         echo "<td class='stock'>".$produit['stock']."</td>";
 
-
         //Si il n'y a plus de stock, on informe le client
         if($produit['stock'] == 0){
             echo "<td>Produit en rupture de stock </td>";
         }
         else{ //Sinon le client peut choisir le produit
             echo "<td>
-                <form action='form.php' method='post'>
+                <form action='form.php'  method='post'>
                     <input type='button' value='-' disabled onclick='retirerDuPanier(this)'>
                     <input type='text' value='0' readonly class='quantite-voulue' name='quantite'>
                     <input type='button' value='+' onclick='ajouterAuPanier(this)'> <br>
@@ -145,6 +144,7 @@ function trouverProduit($reference){
     return null;
 }
 
+//Fonction n'est plus utile
 function miseAJourStockFichier($reference, $quantite){
     $fichier = "../data/stock.txt";
 

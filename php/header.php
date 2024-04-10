@@ -1,3 +1,6 @@
+<?php
+include_once('../php/data.php');
+?>
 <header>
     <a href="../php/index.php">
         <img src="../img/logo.jpg" alt="Logo du site" id="logo">
@@ -6,9 +9,7 @@
         <h1 id="titre">Société Lafleur</h1>
         <ul>
             <li><a href="../php/index.php">Accueil</a></li>
-            <li><a href="../php/produits.php?cat=Bulbes">Bulbes</a></li>
-            <li><a href="../php/produits.php?cat=Rosiers">Rosiers</a></li>
-            <li><a href="../php/produits.php?cat=Plantes%20à%20Massif">Plantes à massif</a></li>
+            <?php afficherMenu(); ?>
             <li><a href="../php/contact.php">Contact</a></li>
         </ul>
     </div>

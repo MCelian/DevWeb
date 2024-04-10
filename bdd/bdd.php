@@ -93,12 +93,12 @@ function importerProduitsBDD() {
 
 function miseAJourStockBDD($reference, $quantite) {
     //Accès à la base de données
-    $dbh = new PDO('mysql:host=127.0.0.1;port=3306;dbname=lafleur', 'root', 'Cytech0001!');
+    $dbh = connexionBDD();
 
     $reponse = $dbh->query("UPDATE Produits SET stock ='$quantite' WHERE reference LIKE '$reference'");
 
     //Fermeture de la base de données
-    $dbh = null;
+    $dbh = deconnexionBDD();
 }
 
 ?>
