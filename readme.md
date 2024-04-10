@@ -13,7 +13,6 @@ A faire :
     
 -PHP :
     -Vérification du formulaire de contact
-    -Fonction d'envoi du mail de contact
 
 BDD : 
     -Fonction qui ajoute un client à la base
