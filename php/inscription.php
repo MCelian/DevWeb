@@ -76,10 +76,10 @@
                     <td>
                     <?php
                         if(empty($_SESSION['erreurInscription']['naissance'])){
-                            echo "<input type='date' name='naissance' max='<?php echo date('Y-m-d'); ?>";
+                            echo "<input type='date' name='naissance' max='<?php echo date('Y-m-d'); ?>'>";
                         }
                         else{
-                            echo "<input type='date' name='naissance' class='erreurCase' max='<?php echo date('Y-m-d'); ?>";
+                            echo "<input type='date' name='naissance' class='erreurCase' max='<?php echo date('Y-m-d'); ?>'>";
                             echo "<span class='messageErreur'>". $_SESSION['erreurInscription']['naissance']."</span>";
                             unset($_SESSION['erreurInscription']['naissance']);
                         }
@@ -102,16 +102,16 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="pwd">Mot de passe : </label></td>
+                    <td><label for="password">Mot de passe : </label></td>
                     <td>
                     <?php
-                    if(empty($_SESSION['erreurInscription']['pwd'])){
-                        echo "<input type='password' name='pwd' placeholder='Entrez un mot de passe'>";
+                    if(empty($_SESSION['erreurInscription']['password'])){
+                        echo "<input type='password' name='password' placeholder='Entrez un mot de passe'>";
                     }
                     else{
-                        echo "<input type='password' name='pwd' placeholder='Entrez un mot de passe' class='erreurCase'>";
-                        echo "<span class='messageErreur'>". $_SESSION['erreurInscription']['pwd']."</span>";
-                        unset($_SESSION['erreurInscription']['pwd']);
+                        echo "<input type='password' name='password' placeholder='Entrez un mot de passe' class='erreurCase'>";
+                        echo "<span class='messageErreur'>". $_SESSION['erreurInscription']['password']."</span>";
+                        unset($_SESSION['erreurInscription']['password']);
                     }
                     ?>
                     </td>
@@ -133,7 +133,14 @@
                 </tr>
                 <tr>
                     <input type="hidden" name="action" value="inscription">
-                    <td colspan="2"><input type="submit" value="Création du compte" onclick="return //checkInscription()"></td>
+                    <td colspan="2"><input type="submit" value="Création du compte" onclick="return checkInscription()">
+                    <?php
+                            if(!empty($_SESSION['etatInscription'])){
+                                echo "<span>". $_SESSION['etatInscription']."</span>";
+                                unset($_SESSION['etatInscription']);
+                            }
+                        ?>
+                    </td>
                 </tr>
             </table>
         </form>

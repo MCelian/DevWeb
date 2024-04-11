@@ -23,6 +23,55 @@ function deconnexionBDD() {
     return null;
 }
 
+function ajoutUtilisateurToSQL(){
+    $email = $_POST['email'];
+
+    $dbh = connexionBDD();
+
+    if($dbh){
+        $reponse = $dbh->prepare('SELECT email FROM Users WHERE email = ?');
+        $reponse->execute([$email]);
+        if($reponse->rowCount() > 0){
+            $_SESSION['etatInscription'] = "Il y a déjà un compte avec cette adresse mail";
+            
+            //Un utilisateur utilise déjà cette adresse mail
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            exit();
+        }
+        else{
+            $reponse = $dbh->prepare('INSERT INTO Users VALUES(?,?,?,?,?,?,?)');
+            $reponse->execute([$_POST['genre'], $_POST['nom'], $_POST['prenom'], $_POST['naissance'], $email, $_POST['password'], 0]);
+            
+            // Écriture dans le fichier d'initialisation 
+            requeteUtilisateurToSQL([$_POST['genre'], $_POST['nom'], $_POST['prenom'], $_POST['naissance'], $email, $_POST['password'], 0]);          
+        }
+
+        $dbh = deconnexionBDD();
+    }   
+}
+//Ecrit une requête SQL qui crée un nouveau Utilisateur dans le fichier lafleurdata.sql
+function requeteUtilisateurToSQL($utilisateur){
+    $fichier = "../sql/lafleurdata.sql";
+
+    $open = fopen($fichier, "a");
+    if ($open != NULL) {
+        // Préparation des données pour l'insertion dans la requête SQL
+        $donnee = "'".$utilisateur[0].
+        "','".$utilisateur[1].
+        "','".$utilisateur[2].
+        "','".$utilisateur[3].
+        "','".$utilisateur[4].
+        "','".$utilisateur[5].
+        "',".$utilisateur[6];
+
+        $requete = "INSERT INTO Users VALUES(".$donnee.");\n";
+        fwrite($open, $requete);
+
+        // Fermeture du fichier
+        fclose($open);
+    }
+}
+
 //Ecrire une requete SQL dans le fichier lafleurdata.sql
 function requeteProduitToSQL($produit) {
     $fichier = "../sql/lafleurdata.sql";

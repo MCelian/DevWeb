@@ -51,7 +51,7 @@ function checkConnexion(){
     var login = document.getElementById('loginForm');
     var erreur = false;
 
-    var informations = ['username', 'password'];
+    var informations = ['email', 'password'];
     for(var i = 0; i < informations.length; i++){
         var data = document.getElementsByName(informations[i]);
 
@@ -60,7 +60,7 @@ function checkConnexion(){
             erreur = true;
         }
 
-        if(informations[i] == 'username'){
+        if(informations[i] == 'email'){
             if(!checkFormatEmail(data[0])){
                 erreur = true;
             }
@@ -83,7 +83,7 @@ function checkInscription(){
     var erreur = false;
 
     //informations à vérifier
-    var informations = ['nom', 'prenom', 'naissance', 'email', 'pwd', 'confirmpwd'];
+    var informations = ['nom', 'prenom', 'naissance', 'email', 'password', 'confirmpwd'];
     var genre = document.getElementsByName('genre');
 
     for(var i = 0; i < informations.length ; i++){
@@ -106,7 +106,7 @@ function checkInscription(){
         }
 
         //Vérifier la force du mot de passe
-        if(informations[i] == 'pwd'){
+        if(informations[i] == 'password'){
             if(!checkForcePwd(data[0])){
                 erreur = true;
             }
@@ -254,7 +254,7 @@ function checkForcePwd(pwd){
 
 //Vérifier si la case pwd et confirmpwd sont égales
 function checkConfirmPwd(){
-    var pwd = document.getElementsByName('pwd');
+    var pwd = document.getElementsByName('password');
     var confirmpwd = document.getElementsByName('confirmpwd');
     if(pwd[0].value.trim() != confirmpwd[0].value.trim()){
         confirmpwd[0].classList.add('erreurCase');

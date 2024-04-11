@@ -8,3 +8,4 @@ INSERT INTO Produits VALUES('Plantes à Massif','../img/massif_marguerite.jpg','
 INSERT INTO Produits VALUES('Plantes à Massif','../img/massif_pensee.jpg','m02','Pour un bouquet de 6 pensées',6,10);
 INSERT INTO Produits VALUES('Plantes à Massif','../img/massif_melange.jpg','m03','Mélange varié de 10 plantes à massif',15,10);
 INSERT INTO Produits VALUES('Voltaire','../img/Voltaire.png','v01','Bot pour Voltaire',100,0);
+INSERT INTO Users VALUES('Homme','Mignot','Célian','2001-03-30','mignotceli@cy-tech.fr','Cytech0001!',0);

@@ -12,12 +12,9 @@ A faire :
     -Terminé sauf idée d'amélioration
     
 -PHP :
-
-
-BDD : 
-    -Fonction qui ajoute un client à la base
-    -Modifie la fonction ConnexionClient() pour qu'elle regarde la base
-    -
+    - Fonction en AJAX
+-BDD : 
+    
 
 Voici le projet de Dev Web pour notre Année d'ING1
 
@@ -32,6 +29,8 @@ Pour lancer un session localhost sur Linux : php -S localhost:8080
 Puis dans votre navigateur taper : localhost:8080/php/index.php
 
 Attention :
+
+Vous devez insérer manuellement les fichiers qui se trouve dans le dossier sql pour pouvoir utiliser le site
 
 On ne peut pas accéder à mysql sans mot de passe, J'ai donc mis le mien
 Cytech0001 , Célian

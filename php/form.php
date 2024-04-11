@@ -4,6 +4,7 @@
 session_start();
 
 include_once('../php/data.php');
+include_once('../bdd/bdd.php');
 
 checkFormulaire();
 
@@ -29,7 +30,8 @@ function checkFormulaire(){
                     exit();
                 }
                 else{
-
+                    AjoutUtilisateurToSQL();
+                    ConnexionClient();
                 }
                 echo "inscription";
                 break;
@@ -78,7 +80,7 @@ function checkFormulaire(){
     $erreur = false;
     
     // Informations à vérifier
-    $informations = ['username', 'password'];
+    $informations = ['email', 'password'];
 
     // Tableau d'informations des erreurs
     $retour = array();
@@ -87,7 +89,7 @@ function checkFormulaire(){
         if(empty($_POST[$data])){
             $erreur = true;
             $retour[$data] = "Champ vide";
-        } elseif($data == 'username'){
+        } elseif($data == 'email'){
             if(!filter_var($_POST[$data], FILTER_VALIDATE_EMAIL)){
                 $erreur = true;
                 $retour[$data] = "Email invalide";
@@ -109,7 +111,7 @@ function checkFormulaire(){
  function checkInscription(){
     $erreur = false;
 
-    $informations = ['genre', 'nom', 'prenom', 'naissance', 'email', 'pwd', 'confirmpwd'];
+    $informations = ['genre', 'nom', 'prenom', 'naissance', 'email', 'password', 'confirmpwd'];
     // Tableau d'informations des erreurs
     $retour = array();
 
@@ -124,7 +126,7 @@ function checkFormulaire(){
             }
         }
         elseif($data == 'confirmpwd'){
-            if($_POST['pwd'] != $_POST['confirmpwd']){
+            if($_POST['password'] != $_POST['confirmpwd']){
                 $retour[$data] = " Le mot de passe doit être le même que celui renseigné!";
             }
         }
@@ -217,27 +219,32 @@ function envoyerMail(){
  *******************/
 
 function ConnexionClient(){
-    $username = $_POST['username'];
+    $username = $_POST['email'];
     $pwd = $_POST['password'];
 
-    $chemin = '../data/user.xml';
+    $dbh = ConnexionBDD();
 
-    echo "$username et $pwd\n";
-    //Ouverture du fichier
-    $fichier = simplexml_load_file($chemin);
+    if($dbh){
+        $reponse = $dbh->prepare('SELECT * FROM Users');
+        $reponse->execute();
+        if($reponse->rowCount() > 0){
+            $all = $reponse-> fetchAll();
+            foreach($all as $ligne){
+                if($ligne[4] == $username && $ligne[5] == $pwd){
+                    $_SESSION['user'] = array(
+                        "sexe" => trim($ligne[0]),
+                        "nom" => trim($ligne[1]),
+                        "prenom" => trim($ligne[2]),
+                        "naissance" => trim($ligne[3]),
+                        "mail" => trim($ligne[4]),
+                        "password" => trim($ligne[5]),
+                        "admin" => ($ligne[6] == 0) ? false : true
+                    );
+                    header('Location: ../php/index.php');
+                    exit();
+                }
+            }
 
-    foreach($fichier->client as $client){
-        if($username == trim($client->mail) && $pwd == trim($client->pwd)){
-            $_SESSION['user'] = array(
-                "sexe" => trim($client->sexe),
-                "nom" => trim($client->nom),
-                "prenom" => trim($client->prenom),
-                "naissance" => trim($client->naissance),
-                "mail" => trim($client->mail),
-                "password" => trim($client->pwd),
-                "admin" => trim($client->admin));
-            header('Location: ../php/index.php');
-            exit();
         }
     }
 
@@ -245,6 +252,8 @@ function ConnexionClient(){
     header('Location: ' . $_SERVER['HTTP_REFERER']);
     exit();
 }
+
+
 
 function DeconnexionClient(){
     session_destroy();

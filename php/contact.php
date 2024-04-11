@@ -172,7 +172,7 @@
                 <tr>
                     <input type="hidden" name="action" value="contact">   
                     <td colspan="2">
-                        <input type="submit" value="Envoyer" onclick="//return checkContact()">
+                        <input type="submit" value="Envoyer" onclick="return checkContact()">
                         <?php
                             if(!empty($_SESSION['etatMail'])){
                                 echo "<span>". $_SESSION['etatMail']."</span>";

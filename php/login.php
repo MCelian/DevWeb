@@ -24,16 +24,16 @@
         <form action="form.php" method="POST" id="loginForm">
             <table id="loginTable">
                 <tr>
-                    <td><label for="username">Identifiant : </label></td>
+                    <td><label for="email">Identifiant : </label></td>
                     <td>
                         <?php
-                        if(empty($_SESSION['erreurConnexion']['username'])){
-                            echo "<input type='email' name='username' placeholder='monmail@monsite.org'>";
+                        if(empty($_SESSION['erreurConnexion']['email'])){
+                            echo "<input type='email' name='email' placeholder='monmail@monsite.org'>";
                         }
                         else{
-                            echo "<input type='email' name='username' placeholder='monmail@monsite.org' class='erreurCase'>";
-                            echo "<span class='messageErreur'>". $_SESSION['erreurConnexion']['username']."</span>";
-                            unset($_SESSION['erreurConnexion']['username']);
+                            echo "<input type='email' name='email' placeholder='monmail@monsite.org' class='erreurCase'>";
+                            echo "<span class='messageErreur'>". $_SESSION['erreurConnexion']['email']."</span>";
+                            unset($_SESSION['erreurConnexion']['email']);
                         }
                         ?>
                     </td>
