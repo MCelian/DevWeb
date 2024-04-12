@@ -96,10 +96,10 @@
                     <td>
                         <?php
                         if(empty($_SESSION['erreurContact']['naissance'])){
-                            echo "<input type='date' name='naissance' max='<?php echo date('Y-m-d'); ?>";
+                            echo "<input type='date' name='naissance' max='". date('Y-m-d')."'";
                         }
                         else{
-                            echo "<input type='date' name='naissance' class='erreurCase' max='<?php echo date('Y-m-d'); ?>";
+                            echo "<input type='date' name='naissance' class='erreurCase' max='". date('Y-m-d')."'";
                             echo "<span class='messageErreur'>". $_SESSION['erreurContact']['naissance']."</span>";
                             unset($_SESSION['erreurContact']['naissance']);
                         }

@@ -19,6 +19,12 @@ function checkContact() {
         if(!checkChampVide(data[0])){
             erreur = true;
         }
+        //Vérication de la date de naissance
+        if(informations[i] == 'naissance'){
+            if(!checkNaissance(data[0])){
+                erreur = true;
+            }
+        }
         //Vérification du format de l'adresse mail
         if(informations[i] == 'email'){
             if(!checkFormatEmail(data[0])){

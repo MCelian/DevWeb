@@ -16,6 +16,8 @@ function afficherMenu(){
 * Produits *
 ************/
 
+
+//Fonction Obsolète
 function importerProduitsFichier(){
     $fichier = "../data/stock.txt";
     //Ouverture du fichier le lecture seule
@@ -368,4 +370,3 @@ function afficherTicket(){
     }
 }
 ?>
-
