@@ -49,9 +49,9 @@ function ajoutUtilisateurToSQL(){
         $dbh = deconnexionBDD();
     }   
 }
-//Ecrit une requête SQL qui crée un nouveau Utilisateur dans le fichier lafleurdata.sql
+//Ecrit une requête SQL qui crée un nouveau Utilisateur dans le fichier néomaniadata.sql
 function requeteUtilisateurToSQL($utilisateur){
-    $fichier = "../sql/lafleurdata.sql";
+    $fichier = "../sql/néomaniadata.sql";
 
     $open = fopen($fichier, "a");
     if ($open != NULL) {
@@ -72,9 +72,9 @@ function requeteUtilisateurToSQL($utilisateur){
     }
 }
 
-//Ecrire une requete SQL dans le fichier lafleurdata.sql
+//Ecrire une requete SQL dans le fichier néomaniadata.sql
 function requeteProduitToSQL($produit) {
-    $fichier = "../sql/lafleurdata.sql";
+    $fichier = "../sql/néomaniadata.sql";
 
     $open = fopen($fichier, "a");
     if ($open != NULL) {

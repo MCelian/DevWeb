@@ -13,7 +13,7 @@
     <link rel="icon" href="../img/icon.png">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/form.js"></script>
-    <title>Lafleur : Contact</title>
+    <title>Néomania : Contact</title>
 </head>
 
 <body>

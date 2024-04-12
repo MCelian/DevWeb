@@ -12,7 +12,7 @@
     <link rel="icon" href="../img/icon.png">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/stock.js"></script>
-    <title>Lafleur : <?php echo $_GET["cat"]; ?> </title>
+    <title>Néomania : <?php echo $_GET["cat"]; ?> </title>
 </head>
 
 <body>

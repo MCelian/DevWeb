@@ -3,7 +3,7 @@ include_once('../php/data.php');
 ?>
 <nav>
     <ul>
-        <h1>Sté Lafleur</h1>
+        <h1>Sté Néomania</h1>
         <li><a href="../php/index.php">Accueil</a></li>
         <hr>
         <h2>Nos produits</h2>

@@ -6,7 +6,7 @@ include_once('../php/data.php');
         <img src="../img/logo.jpg" alt="Logo du site" id="logo">
     </a>
     <div id="banderole">
-        <h1 id="titre">Société Lafleur</h1>
+        <h1 id="titre">Société Néomania</h1>
         <ul>
             <li><a href="../php/index.php">Accueil</a></li>
             <?php afficherMenu(); ?>
