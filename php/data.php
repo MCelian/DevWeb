@@ -309,12 +309,37 @@ function estAdmin(){
             <td colspan='3'></td>
             <td colspan='2'>Prix Total : $sommePanier €</td>
         </tr>";
-        echo "</table>";
 
-        echo "<form action='form.php' method='post'>
-        <input  type='submit' value='Vider le Panier'>
-        <input type='hidden' name='action' value='viderPanier'>
-        </form>";
+        echo "<tr>
+            <td colspan='1'>
+            <form action='form.php' method='post'>
+            <input  type='submit' value='Vider le Panier'>
+            <input type='hidden' name='action' value='viderPanier'>
+            </form>
+            </td>
+        ";
+
+        if(empty($_SESSION['user'])){
+            echo "<td colspan='4'>
+                Merci de vous connecter pour valider le panier
+            </td>";
+        }
+        else{
+            echo "<td colspan='4'>
+            <form action='form.php' method='post'>
+            <input  type='submit' value='Valider le Panier'>
+            <input type='hidden' name='action' value='validerPanier'>
+            </form>
+            </td>";
+        }
+        echo "</tr></table>";
+
+    }
+    elseif(empty($_SESSION['panier'])){
+        echo "Le panier est vide";
+    }
+    else{
+
     }
  }
 
