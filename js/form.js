@@ -318,14 +318,35 @@ function checkNaissance(naissance) {
 
 
 //Ajouter un produits au panier AJAX
-/*function AjouterProduitPanierAjax(bouton){
+function AjouterProduitPanierAjax(bouton) {
     var xhttp = new XMLHttpRequest();
 
-    xhttp.onreadystatechange=function() {
+    xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-          var stock=bouton.closest('tr').querySelector('.stock');;
+            //Récupération du stock
+            var stock = bouton.closest('tr').querySelector('.stock');
+            //Convertion en entier
+            var Intstock = parseInt(stock.innerHTML);
+            //Conversion en entier
+            var Intquantite = parseInt(quantite.value);
+            //Déduction de la quantité voulue
+            Intstock -= Intquantite;
+            //Changement du stock affiché
+            stock.textContent = Intstock;
+            //Remise à zéro de la quantité voulue
+            quantite.value = 0;
+            //Active/Déactive les boutons pour la commande
+            miseAJourBouton(bouton.parentNode, quantite.value, Intstock);
+
+            
+            messageRuptureStock(bouton.parentNode, Intstock);
         }
-      };
-      xhttp.open("POST", "form.php", true);
-      xhttp.send();
-}*/
+    };
+    
+    var quantite = bouton.parentNode.querySelector('[name="quantite"]');
+    var reference = bouton.parentNode.querySelector('[name="reference"]').value;
+    var params = "action=panier&reference=" + reference + "&quantite=" + quantite.value;
+    xhttp.open("POST", "form.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(params);
+}

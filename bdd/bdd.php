@@ -144,7 +144,7 @@ function miseAJourStockBDD($reference, $quantite) {
     //Accès à la base de données
     $dbh = connexionBDD();
 
-    $reponse = $dbh->query("UPDATE Produits SET stock ='$quantite' WHERE reference LIKE '$reference'");
+    $reponse = $dbh->query("UPDATE Produits SET stock = stock -'$quantite' WHERE reference LIKE '$reference'");
 
     //Fermeture de la base de données
     $dbh = deconnexionBDD();

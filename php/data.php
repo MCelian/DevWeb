@@ -101,15 +101,16 @@ function afficherProduits($cat){
         }
         else{ //Sinon le client peut choisir le produit
             echo "<td>
-                <form action='form.php'  method='post'>
+                <form>
                     <input type='button' value='-' disabled onclick='retirerDuPanier(this)'>
                     <input type='text' value='0' readonly class='quantite-voulue' name='quantite'>
                     <input type='button' value='+' onclick='ajouterAuPanier(this)'> <br>
                     <input type='hidden' name='action' value='panier'>
-                    <input type='hidden' name='reference' value=".$produit['reference'].">
-                    <input type='submit' value='Ajouter au panier' disabled>
+                    <input type='hidden' name='reference' value='".$produit['reference']."'>
+                    <input type='button' name='submit' value='Ajouter au panier' onclick='AjouterProduitPanierAjax(this)' disabled>
                 </form>
-                </td>";
+            </td>";
+
         }
         echo "</tr>";
     }
@@ -146,7 +147,7 @@ function trouverProduit($reference){
     return null;
 }
 
-//Fonction n'est plus utile
+//Fonction n'est plus utile (obsolète)
 function miseAJourStockFichier($reference, $quantite){
     $fichier = "../data/stock.txt";
 
@@ -179,6 +180,7 @@ function miseAJourStockFichier($reference, $quantite){
 * Clients *
 **************/
 
+//Fonction obsolète
 function exporterClientFichier($sexe,$nom,$prenom,$naissance,$mail,$pwd){
     $chemin = "../data/user.xml";
 
@@ -270,9 +272,7 @@ function estAdmin(){
     }
 
     miseAJourStock( $reference, $quantite);
-    
-    //On renvoie vers la page d'origine
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    miseAJourStockBDD($reference, $quantite);
  }
 
 
@@ -317,7 +317,8 @@ function estAdmin(){
         </form>";
     }
  }
- //echo("<input type='button' value='Vider le panier'>")
+
+ //Vide le panier
  function viderPanier(){
 
     //Ajoute au panier si l'article n'y est pas
@@ -325,6 +326,7 @@ function estAdmin(){
 
     // le moins est pour remettre le stock au catalogue
     miseAJourStock($reference, -$quantite);
+    miseAJourStockBDD($reference, -$quantite);
       
     }
     unset($_SESSION['panier']);
@@ -355,7 +357,6 @@ function afficherTicket(){
                     echo "<td>".$produit['prix']*$quantite." €</td>";
                     echo "</tr>";
                     $sommePanier += $produit['prix']*$quantite;
-                    miseAJourStockBDD($produit['reference'],$produit['stock']);
                 }
             }
 

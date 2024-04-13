@@ -12,6 +12,7 @@
     <link rel="icon" href="../img/icon.png">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/stock.js"></script>
+    <script src="../js/form.js"></script>
     <title>Néomania : <?php echo $_GET["cat"]; ?> </title>
 </head>
 

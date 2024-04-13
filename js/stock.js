@@ -47,7 +47,7 @@ function retirerDuPanier(bouton){
 function miseAJourBouton(parent,quantite,stock){
     var boutonPlus = parent.querySelector('[value="+"]');
     var boutonMoins = parent.querySelector('[value="-"]');
-    var boutonEnvoi = parent.querySelector('[type="submit"]');
+    var boutonEnvoi = parent.querySelector('[name="submit"]');
 
     boutonPlus.disabled = (quantite >= stock) ? true : false ;
 
@@ -58,6 +58,15 @@ function miseAJourBouton(parent,quantite,stock){
     else{
         boutonMoins.disabled = false;
         boutonEnvoi.disabled = false;
+    }
+}
+//Vérifie si le message de rupture de stock doit être afficher
+function messageRuptureStock(parent, stock){
+    if(stock <= 0){
+        var message = document.createElement('span');
+        message.textContent = "Produit en rupture de stock";
+        //On remplace le formulaire par le message
+        parent.parentNode.replaceChild(message, parent);
     }
 }
 

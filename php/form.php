@@ -50,6 +50,7 @@ function checkFormulaire(){
                 break;
             case 'panier':
                 ajouterProduitPanier();
+                echo "Ajouter";
                 break;
             case 'viderPanier':
                 viderPanier();
