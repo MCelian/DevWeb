@@ -257,6 +257,13 @@ function ConnexionClient(){
 
 
 function DeconnexionClient(){
+    //On rajoute à la BDD, les produits non commandés
+    if(!empty($_SESSION['panier'])){
+        foreach($_SESSION['panier'] as $reference => $quantite){
+            miseAJourStockBDD($reference, -$quantite);
+        }
+    }
+
     session_destroy();
     header('Location: ' . $_SERVER['HTTP_REFERER']);
     exit();
