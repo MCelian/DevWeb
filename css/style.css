@@ -1,100 +1,187 @@
 /************************
 * Mise en page général de la page *
 *************************/
+html {
+    margin: 0;
+    padding: 0;
+    background-color: #1f1f1f;
+    color: #ffffff;
+    /* Theme du site (ie, les couleurs)
+
+    Fond sombre : #1f1f1f
+    Texte principal : #ffffff
+    Texte secondaire : #b9bbbe
+    Accent pour erreur : navy ou #080000
+    Accent constraste : #ff66fc
+    Arrière-plan de la barre de navigation (balise nav): #36393f
+    Lien non visité : #f6a50b
+    Lien visité : #ff66fc
+    */
+}
+
 
 body{
+    margin: 0;
+    padding: 0;
+    border-width: 0;
     display: grid;
-    grid-template-columns: 0.2fr 1fr;
-    grid-template-rows: 0.3fr 1fr 0.3fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-
-    min-width: 800px;
+    grid-template-areas: 
+    "header header" 
+    "aside main" 
+    "footer footer";
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: auto 2fr auto;
+    grid-auto-flow: dense;
+    min-height: 100vh;
+    min-width: 400px;
 }
 
 header{
-    grid-area: 1 / 1 / 2 / 3;
-    background-color: lightblue;
+    background-color:#1f1f1f;
+    grid-area: header;
 }
 
 nav{
-    grid-area: 2 / 1 / 3 / 2;
-    background-color: lightgreen;
+    background-color: #36393f;
     padding: 10px 30px 10px 30px;
+    grid-area: aside;
 }
 
 main{
-    grid-area: 2 / 2 / 3 / 3;
-    background-color: lightpink;
-    padding: 10px 30px 10px 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: #CC5500;
+    padding: 3% 0% 3% 0%;
     text-align: center;
     line-height: 46px;
 
-    display: flex;
-    flex-direction: column;
+    grid-area: main;
     justify-content: center;
     align-items: center;
 }
 
+/* Permet de centrer les éléments dans le main */
+main div {
+    min-width: 90%;
+    flex: 0;
+    justify-content: center;
+    align-items: baseline;
+}
+
 footer{
-    grid-area: 3 / 1 / 4 / 3;
+    grid-area: footer;
     text-align: center;
-    background-color: yellow;
+    background-color: #1f1f1f;
     padding: 10px 30px 10px 30px;
 }
 
 /************************
 * Mise en page de la balise header *
 *************************/
-header{
-    display: grid;
-    grid-template-columns: 0.2fr 1fr 0.2fr;
-    grid-template-rows: 100%;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+
+.logo_titre_connexion{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 #logo{
-    width: 100%;
+    max-width: 300px;
+    max-height: 200px;
+    justify-self: center;
+    align-self: center;
 }
 
-#banderole{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 46px;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+#logo_header{
+    display: flex;
+    flex: 0;
+    max-width: 300px;
+    max-height: 200px;
 }
 
-#banderole h1{
-    grid-area: 1 / 1 / 2 / 2;
+#titre_header{
+    display: flex;
+    flex: 12;
+    justify-content: center;
+    align-items: center;
+
     text-align: center;
+    text-decoration: double;
+    text-shadow: 1px 0 0 #f6a50b;
+    font-size: 32px;
+    color: #CC5500; 
 }
 
-#banderole ul{
-    grid-area: 2 / 1 / 3 / 2;
+#panier_connexion{
+    display: flex;
+    flex-direction: column;
+    flex: 1.5;
+    justify-content: center;
+    margin:4px 8px 4px 5px;
+}
+
+
+.bouton_client{
+    flex : 1;
+    min-width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color:#ff66fc;
+
+    border-radius: 15px;
+    border: 3px ridge #ff66fc;
+    background-color: #36393f;
+
+    padding: 2% 5% 2% 5%;
+    margin:1px 0 1px 0;
+}
+
+.bouton_client:hover{
+    color: #ff66fc;
+	height: 100%;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.1);
+	transition: text-shadow, color 1s;
+}
+
+#nom_user{
+    text-align: center;
+    color: #ffffff;
+}
+
+.categories{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.categories ul{
     padding: 0;
     margin: 0;
+
     font-family: "Times";
 	font-size: 15pt;
-	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+	background:linear-gradient(to bottom, #f6a50b 5%, #E15F3A 100%);
+
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
+
 	width: 100%;
 	height: 46px;
 }
 
-#banderole li{
+.categories li{
     flex: auto;
 	list-style-type: none;
 	text-align: center;
 	height: 100%;
 }
 
-#banderole li a{
+.categories li a{
     display: block;
 	color: white;
 	text-decoration: none;
@@ -105,8 +192,8 @@ header{
 	position: relative;
 }
 
-#banderole li a:hover{
-    color: black;
+.categories li a:hover{
+    color: #1f1f1f;
 	height: 100%;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
 	background: rgba(255, 255, 255, 0.1);
@@ -187,7 +274,7 @@ table th,td {
 }
 
 .erreurCase{
-    border: 3px solid red;
+    border: 3px solid navy;
 }
 
 /************************
@@ -254,14 +341,27 @@ table th,td {
     cursor: pointer;
     font-size: 40px;
     color: white;
-    float: right;
+    float: inline-end;
 }
 
 /***********************
 * Erreur de connexion *
 ************************/
 
-
 .messageErreur{
-    color: red;
+    color: navy;
+}
+
+/***********************
+* Mise en page des Balises *
+************************/
+
+a:visited{
+    color:#ff66fc;
+    text-shadow: 1px 1px 1px #ff0000, -1px 1px 1px #ff0000, 1px -1px 1px #ff0000, -1px -1px 1px #ff0000;
+}
+
+a{
+    color:#f6a50b;
+    text-shadow: 1px 1px 2px #1f1f1f;
 }
