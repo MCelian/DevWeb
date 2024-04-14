@@ -5,7 +5,7 @@ Salon;../img/xbox_360_S.jpg;s04;Console Microsoft Xbox 360 S de 2010 4Go (EUR);3
 Salon;../img/xbox_360_S.jpg;s05;Console Microsoft Xbox 360 S de 2010 250Go (EUR);50;10
 Salon;../img/xbox_360_E.jpg;s06;Console Microsoft Xbox 360 E de 2013 250Go (EUR);65;2
 Salon;../img/nes.jpg;s07;Console Nintendo Entertainment System de 1987 (EUR);50;6
-Salon;../img/snes.jpg;s08;Console Super Nintendo 1992 (EUR);60;6
+Salon;../img/snes.jpg;s08;Console Super Nintendo de 1992 (EUR);60;6
 Salon;../img/n64.jpg;s09;Console Nintendo 64 de 1997(EUR);70;6
 Salon;../img/ngc.jpg;s10;Console Nintendo GameCube de 2002 (EUR);50;6
 Salon;../img/wii.jpg;s11;Console Nintendo Wii de 2006 (EUR);25;50
