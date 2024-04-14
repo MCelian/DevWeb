@@ -30,7 +30,8 @@ Puis dans votre navigateur taper : localhost:8080/php/index.php
 
 Attention :
 
+Vous devez changer le mot de passe qui ce trouve dans le fichier bdd/bddData.php
+
 Vous devez insérer manuellement les fichiers qui se trouve dans le dossier sql pour pouvoir utiliser le site.
 
-On ne peut pas accéder à mysql sans mot de passe, J'ai donc mis le mien
-Cytech0001 , Célian
+myslq> source chemin_du_fichier/lafleur.sql 
