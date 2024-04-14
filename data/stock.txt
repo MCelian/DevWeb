@@ -20,3 +20,4 @@ Hybride;../img/nomad.jpg;h01;Console hybride SEGA Nomad de 1995 (NA);450;1
 Hybride;../img/switch.jpg;h02;Console hybride Nintendo Switch de 2017 (v1);230;6
 Hybride;../img/switch.jpg;h03;Console hybride Nintendo Switch de 2017 (v2);260;10
 Hybride;../img/switch_oled.jpg;h04;Console hybride Nintendo Switch Oled de 2021;330;10
+Hybride;../img/neo_geo_x.jpg;h05;Console hybride SNK Neo Geo X de 2012;300;2

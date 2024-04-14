@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS lafleur;
+DROP DATABASE IF EXISTS néomania;
 
-CREATE DATABASE lafleur;
+CREATE DATABASE néomania;
 
-USE lafleur;
+USE néomania;
 
 CREATE TABLE IF NOT EXISTS Users(
     sexe VARCHAR(6) NOT NULL,
