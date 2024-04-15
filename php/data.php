@@ -96,7 +96,7 @@ function afficherProduits($cat){
         echo "<td class='stock'>".$produit['stock']."</td>";
 
         //Si il n'y a plus de stock, on informe le client
-        if($produit['stock'] == 0){
+        if($produit['stock'] <= 0){
             echo "<td>Produit en rupture de stock </td>";
         }
         else{ //Sinon le client peut choisir le produit
