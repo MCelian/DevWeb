@@ -19,14 +19,26 @@
 <body>
     <?php include("../php/header.php"); ?>
     <?php include('../php/nav.php'); ?>
-    <!--Accueillir l'image dans un Popup -->
-    <div id="popup-overlay">
+    
+    
+    <main>
+        <!--Confirmation d'ajout au panier -->
+        <div id="overlay_confirmation">
+            <span id="fermer_confirmation" onclick="fermerConfirmation()">&times;</span>
+            <div id="confirmation_popup">
+                <h2>Merci pour votre confiance</h2>
+                <p>
+                    Vous venez d'ajouter <span id="reference_confirmation"></span> en <span id="quantite_confirmation"></span> exemplaire(s) à votre panier.
+                </p>
+            </div>
+        </div>
+        <!--Accueillir l'image dans un Popup -->
+        <div id="popup-overlay">
+        <span id="fermer-popup" onclick="fermerImage()">&times;</span>
             <div id="popup">
-                <span id="fermer-popup" onclick="fermerImage()">&times;</span>
                 <img src="" alt="" id="image-popup">
             </div>
         </div>
-    <main>
         <?php afficherProduits($_GET["cat"]); ?>
     </main>
     <?php include("../html/footer.html"); ?>

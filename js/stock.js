@@ -90,3 +90,27 @@ function fermerImage(){
     popup.style.display = 'none';
     overlay.style.display = 'none';
 }
+
+/**********
+* Fonctions pour le popup de confirmation ajout au panier* 
+***********/
+
+function afficherConfirmation(reference, quantite){
+    var overlay = document.getElementById('overlay_confirmation');
+    var popup = document.getElementById('confirmation_popup');
+    var popupReference = document.getElementById('reference_confirmation');
+    var popupquantite = document.getElementById('quantite_confirmation');
+
+
+    popupReference.textContent = reference;
+    popupquantite.textContent = quantite;
+    popup.style.display = 'block';
+    overlay.style.display = 'block';
+}
+
+function fermerConfirmation(){
+    var overlay = document.getElementById('overlay_confirmation');
+    var popup = document.getElementById('confirmation_popup');
+    popup.style.display = 'none';
+    overlay.style.display = 'none';
+}

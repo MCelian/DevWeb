@@ -333,13 +333,16 @@ function AjouterProduitPanierAjax(bouton) {
             Intstock -= Intquantite;
             //Changement du stock affiché
             stock.textContent = Intstock;
-            //Remise à zéro de la quantité voulue
-            quantite.value = 0;
+            
             //Active/Déactive les boutons pour la commande
             miseAJourBouton(bouton.parentNode, quantite.value, Intstock);
-
             
             messageRuptureStock(bouton.parentNode, Intstock);
+            //Affiche un message de confirmation
+            afficherConfirmation(reference, quantite.value);
+
+            //Remise à zéro de la quantité voulue
+            quantite.value = 0;
         }
     };
     

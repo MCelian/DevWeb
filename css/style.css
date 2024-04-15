@@ -304,8 +304,9 @@ table th,td {
 }
 
 /***********************
-* Mise en page du Popup *
+* Mise en page du Popup : Image  *
 ************************/
+
 
 #popup-overlay{
     display: none;
@@ -321,7 +322,6 @@ table th,td {
 #popup{
     max-width: 600px;
     width: 100%;
-    padding: 30px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -334,6 +334,38 @@ table th,td {
 }
 
 #fermer-popup{
+    cursor: pointer;
+    font-size: 40px;
+    color: white;
+    float: right;
+}
+
+/***********************
+* Mise en page du Popup : Confirmation  *
+************************/
+
+#overlay_confirmation{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 99;
+}
+
+#confirmation_popup{
+    max-width: 600px;
+    width: 100%;
+    position: absolute;
+    background-color: #CC5500;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#fermer_confirmation{
     cursor: pointer;
     font-size: 40px;
     color: white;

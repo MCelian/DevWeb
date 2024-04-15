@@ -11,11 +11,10 @@ Clément :
     -titre header plus gros
     -police des menus plus gros
     -style boutons -/+ (commande)
+    -mise en page du popup de confirmation
 
 Célian :
     -maintien bouton -/+
-    -Croix popup image
-    -popup message lorsque ajout au panier
     -Gestion panier si deux pages (Connecter/ Pas Connecter)
 
 Matthias :
