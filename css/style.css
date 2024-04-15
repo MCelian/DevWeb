@@ -333,10 +333,6 @@ table th,td {
     max-height: 100%;
 }
 
-.photo-article{
-    cursor: pointer;
-}
-
 #fermer-popup{
     cursor: pointer;
     font-size: 40px;

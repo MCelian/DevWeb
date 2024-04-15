@@ -17,42 +17,6 @@ function afficherMenu(){
 ************/
 
 
-//Fonction Obsolète
-function importerProduitsFichier(){
-    $fichier = "../data/stock.txt";
-    //Ouverture du fichier le lecture seule
-    $open = fopen($fichier, "r");
-    
-
-    //Initialisation d'un tableau vide qui va accueillir les produits
-    $cat = array();
-
-    //Vérification de l'ouverture du fichier
-    if ($open != NULL){
-        $ligne = fgets($open);
-        //Lecture de chaque ligne du fichier
-        while($ligne != NULL){
-            //Séparation des données de la ligne
-            $donnee = explode(';', $ligne);
-            $categorie = $donnee[0];
-            $cat[$categorie][]= array(
-                'categorie' => $categorie,
-                'photo' => trim($donnee[1]),
-                'reference' => trim($donnee[2]),    
-                'description' => trim($donnee[3]),
-                'prix' => floatval(trim($donnee[4])),
-                'stock' => intval(trim($donnee[5]))  
-            );
-            $ligne = fgets($open);
-        }
-        fclose($open);
-    }
-    return $cat;
-}
-
-
-
-
 //Fonction pour exporter tout les produits vers un fichier
 //Option pour l'admin 
 function exporterProduitsFichier(){
@@ -73,6 +37,7 @@ function exporterProduitsFichier(){
     } 
 }
 
+//Permet d'afficher les produits de la catégorie passé en paramètre
 function afficherProduits($cat){
     // Récupération des produits de la catégorie voulue
     $donnees = $_SESSION['categorie'][$cat];
@@ -134,6 +99,7 @@ function miseAJourStock($reference, $quantite){
     }
 }
 
+//Permet de recupérer les caractéristiques d'un produit
 function trouverProduit($reference){
     // Parcours de chaque categorie
     foreach($_SESSION['categorie'] as &$produits){
@@ -147,67 +113,10 @@ function trouverProduit($reference){
     return null;
 }
 
-//Fonction n'est plus utile (obsolète)
-function miseAJourStockFichier($reference, $quantite){
-    $fichier = "../data/stock.txt";
-
-    //Ouverture du fichier
-    $open = fopen($fichier, "r+");
-    
-    if($open != NULL){
-        $ligne = fgets($open);
-        while($ligne != NULL){
-            //Décomposition de la ligne
-            $donnee = explode(';', $ligne);
-            if(trim($donnee[2]) == $reference){
-                $donnee[5] = intval(trim($quantite));
-
-                //Reconstruction de la ligne
-                $ligneMaJ = implode(';', $donnee);
-                
-                //On replace le curseur en début de ligne
-                fseek($open, ftell($open) - strlen($ligne));
-
-                fwrite($open, $ligneMaJ);
-                
-            }
-            $ligne = fgets($open);
-        }
-        fclose($open);
-    }
-}
 /************
 * Clients *
 **************/
 
-//Fonction obsolète
-function exporterClientFichier($sexe,$nom,$prenom,$naissance,$mail,$pwd){
-    $chemin = "../data/user.xml";
-
-    //On vérifie si le fichier existe
-    if(file_exists($chemin)){
-        $fichier = simplexml_load_file($chemin);
-    }
-    else{ //Sinon on le créer
-        $fichier = new SimpleXMLElement('<clients></clients>');
-    }
-
-    //on descend d'un niveau dans l'indentation
-    $client = $fichier->addChild('client');
-
-    //Ajout des caractéristiques du client
-    $client->addChild('sexe', $sexe);
-    $client->addChild('nom', $nom);
-    $client->addChild('prenom', $prenom);
-    $client->addChild('naissance', $naissance);
-    $client->addChild('mail', $mail);
-    $client->addChild('pwd', $pwd);
-    $client->addChild('admin', "false");
-
-
-    //Ecriture dans le fichier
-    $fichier->asXML($chemin);
-}
 
 
 /*********
@@ -253,27 +162,28 @@ function estAdmin(){
  * Panier *
  *******************/
 
- function ajouterProduitPanier(){
-    //Récupération de la quantité voulue
-    $reference = $_POST['reference'];
-    $quantite = $_POST['quantite'];
+//Ajoute un produit au panier
+function ajouterProduitPanier(){
+//Récupération de la quantité voulue
+$reference = $_POST['reference'];
+$quantite = $_POST['quantite'];
 
-    //Si le panier n'existe pas
-    if(!isset($_SESSION['panier'])){
-        $_SESSION['panier'] = array();
-    }
+//Si le panier n'existe pas
+if(!isset($_SESSION['panier'])){
+    $_SESSION['panier'] = array();
+}
 
-    //Ajoute au panier si l'article n'y est pas
-    if(empty($_SESSION['panier'][$reference])){
-        $_SESSION['panier'][$reference] = $quantite;
-    }
-    else{ //Sinon on ajoute à la quantité déjà présente dans le panier
-        $_SESSION['panier'][$reference] += $quantite;
-    }
+//Ajoute au panier si l'article n'y est pas
+if(empty($_SESSION['panier'][$reference])){
+    $_SESSION['panier'][$reference] = $quantite;
+}
+else{ //Sinon on ajoute à la quantité déjà présente dans le panier
+    $_SESSION['panier'][$reference] += $quantite;
+}
 
-    miseAJourStock( $reference, $quantite);
-    miseAJourStockBDD($reference, $quantite);
- }
+miseAJourStock( $reference, $quantite);
+miseAJourStockBDD($reference, $quantite);
+}
 
 
  function afficherPanier(){

@@ -19,14 +19,14 @@
 <body>
     <?php include("../php/header.php"); ?>
     <?php include('../php/nav.php'); ?>
-    <main>
-        <!--Accueillir l'image dans un Popup -->
-        <div id="popup-overlay">
+    <!--Accueillir l'image dans un Popup -->
+    <div id="popup-overlay">
             <div id="popup">
                 <span id="fermer-popup" onclick="fermerImage()">&times;</span>
                 <img src="" alt="" id="image-popup">
             </div>
         </div>
+    <main>
         <?php afficherProduits($_GET["cat"]); ?>
     </main>
     <?php include("../html/footer.html"); ?>
