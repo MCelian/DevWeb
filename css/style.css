@@ -341,7 +341,7 @@ table th,td {
     cursor: pointer;
     font-size: 40px;
     color: white;
-    float: inline-end;
+    float: right;
 }
 
 /***********************

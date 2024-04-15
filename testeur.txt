@@ -1,0 +1,23 @@
+Problèmes rencontrés (Mettre le prénom de la personne concernée)
+
+Tout bug détecter doit être expliqué ce que vous avez fait
+
+All:
+    - Rédaction du texte sur la page d'accueil
+
+Clément :
+    -lien inscription pas visible (par défaut)
+    -tableau d'inscription/contact plus large
+    -titre header plus gros
+    -police des menus plus gros
+    -style boutons -/+ (commande)
+
+Célian :
+    -maintien bouton -/+
+    -Croix popup image
+    -popup message lorsque ajout au panier
+    -Gestion panier si deux pages (Connecter/ Pas Connecter)
+
+Matthias :
+    -Afficher un message (identifiant ou login incorrect dans connexion)
+    -JS : regex checkMailValide (pas normal a@..fr fonctionne)
