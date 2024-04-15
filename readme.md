@@ -1,37 +1,29 @@
 Bonjour,
 
-En Cours de Réalisation :
-    -
+Utilisation :
 
-A faire :
+Vous devez démarrer un serveur php, pour cela vous :
 
--CSS :
-    -Mise en page général
+-Dans un terminal, placez vous dans le répertoire où se trouve ce projet
+    cd path
+    exemple : cd ~/Desktop/DevWeb
 
--Javascript :
-    -Terminé sauf idée d'amélioration
-    
--PHP :
-    - Fonction en AJAX
--BDD : 
-    
+-Vous pouvez démarrer un serveur php avec la commande :
+    php -S localhost:8080
 
-Voici le projet de Dev Web pour notre Année d'ING1
+Maintenant vous pouvez accéder au site internet en entrant dans la barre de recherche de votre navigateur préféré :
+    localhost:8080/php/index.php
 
-et le foudecytech alias matthias
+Première utilisation :
 
-je me serais passé de cet info hein juste comme ça, à bon entendeur...
+Avant d'utiliser le site pour la première fois, devenir importer la base de données et ce qu'elle contient manuellement.
 
+-Pour lancer un terminal mysql, entrer dans votre console : mysql -u root -p
+-Une fois dans votre terminal mysql, vous allez insérer les fichiers suivant :
+    source path/néomania.sql;
+    source path/néomaniadata.sql;
 
-Rappel :
+-Quittez votre terminal mysql en entrant : exit;
 
-Pour lancer un session localhost sur Linux : php -S localhost:8080
-Puis dans votre navigateur taper : localhost:8080/php/index.php
-
-Attention :
-
-Vous devez changer le mot de passe qui ce trouve dans le fichier bdd/bddData.php
-
-Vous devez insérer manuellement les fichiers qui se trouve dans le dossier sql pour pouvoir utiliser le site.
-
-myslq> source chemin_du_fichier/lafleur.sql 
+Pour terminer, changer le mot de passe du fichier bddData.php du répertoire bdd :
+    const MYSQL_PASSWORD='Votre mot de passe';
