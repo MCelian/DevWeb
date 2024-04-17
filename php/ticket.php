@@ -1,8 +1,6 @@
 <?php
     session_start();
-    if(!isset($_SESSION['categorie'])) require('../php/varSession.inc.php');
-
-    include_once('../php/data.php');
+    if(!isset($_SESSION['categorie']) && empty($_SESSION['categorie'])) require('../php/varSession.inc.php');
 ?>
 
 <!DOCTYPE html>
