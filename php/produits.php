@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!isset($_SESSION['categorie'])) require('../php/varSession.inc.php');
+    if(!isset($_SESSION['categorie']) && !empty($_SESSION['categorie'])) require('../php/varSession.inc.php');
 ?>
 
 <!DOCTYPE html>
@@ -26,10 +26,8 @@
         <div id="overlay_confirmation">
             <span id="fermer_confirmation" onclick="fermerConfirmation()">&times;</span>
             <div id="confirmation_popup">
-                <h2>Merci pour votre confiance</h2>
-                <p>
-                    Vous venez d'ajouter <span id="reference_confirmation"></span> en <span id="quantite_confirmation"></span> exemplaire(s) à votre panier.
-                </p>
+                <h2 id="status_commande"></h2>
+                <span id="information_commande"></span>
             </div>
         </div>
         <!--Accueillir l'image dans un Popup -->

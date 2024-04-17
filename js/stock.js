@@ -95,15 +95,21 @@ function fermerImage(){
 * Fonctions pour le popup de confirmation ajout au panier* 
 ***********/
 
-function afficherConfirmation(reference, quantite){
+function afficherConfirmation(reference, quantite, erreur) {
     var overlay = document.getElementById('overlay_confirmation');
     var popup = document.getElementById('confirmation_popup');
-    var popupReference = document.getElementById('reference_confirmation');
-    var popupquantite = document.getElementById('quantite_confirmation');
+    var popuptitre = document.getElementById('status_commande');
+    var message = document.getElementById('information_commande');
 
-
-    popupReference.textContent = reference;
-    popupquantite.textContent = quantite;
+    //un problème de stock à été détecter
+    if (!erreur.trim() =='' && erreur) {
+        popuptitre.textContent = "Une erreur s'est produite";
+        message.textContent = erreur;
+    } else {
+        popuptitre.textContent = "Merci pour votre confiance";
+        //console.log("reference" +reference)
+        message.textContent = "Vous venez d'ajouter " + reference + " en " + quantite + " exemplaire(s) à votre panier.";
+    }
     popup.style.display = 'block';
     overlay.style.display = 'block';
 }

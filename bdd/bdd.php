@@ -150,4 +150,23 @@ function miseAJourStockBDD($reference, $quantite) {
     $dbh = deconnexionBDD();
 }
 
+function checkStockBDD($reference, $quantite){
+    $dbh = connexionBDD();
+
+    if($dbh){
+        $reponse = $dbh->prepare('SELECT stock FROM Produits WHERE reference = ?');
+        $reponse->execute(array($reference));
+        $dbh = deconnexionBDD();
+
+        if($reponse->rowCount() > 0){
+            $all = $reponse->fetchAll();
+            foreach($all as $ligne){
+                if($ligne['stock'] > 0 && $quantite <= $ligne['stock']){
+                    return true;
+                }
+            }
+        } 
+    }
+    return false;
+}
 ?>

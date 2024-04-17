@@ -164,26 +164,35 @@ function estAdmin(){
 
 //Ajoute un produit au panier
 function ajouterProduitPanier(){
-//Récupération de la quantité voulue
-$reference = $_POST['reference'];
-$quantite = $_POST['quantite'];
+    //Récupération de la quantité voulue
+    $reference = $_POST['reference'];
+    $quantite = $_POST['quantite'];
 
-//Si le panier n'existe pas
-if(!isset($_SESSION['panier'])){
-    $_SESSION['panier'] = array();
+    //Vérification de la disponibilité du produit
+    if(checkStockBDD($reference, $quantite)){
+            //Si le panier n'existe pas
+        if(!isset($_SESSION['panier'])){
+            $_SESSION['panier'] = array();
+        }
+
+        //Ajoute au panier si l'article n'y est pas
+        if(empty($_SESSION['panier'][$reference])){
+            $_SESSION['panier'][$reference] = $quantite;
+        }
+        else{ //Sinon on ajoute à la quantité déjà présente dans le panier
+            $_SESSION['panier'][$reference] += $quantite;
+        }
+
+
+        miseAJourStock( $reference, $quantite);
+        miseAJourStockBDD($reference, $quantite);
+    }
+    else{
+        echo "le produit n'est plus disponible, nous nous excusons pour la gène occationnée";
+    }
 }
 
-//Ajoute au panier si l'article n'y est pas
-if(empty($_SESSION['panier'][$reference])){
-    $_SESSION['panier'][$reference] = $quantite;
-}
-else{ //Sinon on ajoute à la quantité déjà présente dans le panier
-    $_SESSION['panier'][$reference] += $quantite;
-}
 
-miseAJourStock( $reference, $quantite);
-miseAJourStockBDD($reference, $quantite);
-}
 
 
  function afficherPanier(){

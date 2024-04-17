@@ -33,7 +33,6 @@ function checkFormulaire(){
                     AjoutUtilisateurToSQL();
                     ConnexionClient();
                 }
-                echo "inscription";
                 break;
             case 'contact':
                 if(checkContact()){
@@ -50,18 +49,15 @@ function checkFormulaire(){
                 break;
             case 'panier':
                 ajouterProduitPanier();
-                echo "Ajouter";
                 break;
             case 'viderPanier':
                 viderPanier();
-                echo "Panier vider";
                 break;
             case 'validerPanier':
                 header('Location: ../php/ticket.php');
                 exit();
                 break;
             case 'pagePrincipale':
-                echo "Retour à la page index";
                 header('Location: ../php/index.php');
                 exit();
                 break;
