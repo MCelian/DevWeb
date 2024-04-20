@@ -244,6 +244,7 @@ function ConnexionClient(){
 
         }
     }
+    $_SESSION['etatConnexion'] = "identifiant ou mot de passe incorrect";
 
     //Aucun client n'a été identifié
     header('Location: ' . $_SERVER['HTTP_REFERER']);

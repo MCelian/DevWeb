@@ -8,7 +8,6 @@ All:
 Clément :
     -lien inscription pas visible (par défaut)
     -tableau d'inscription/contact plus large
-    -titre header plus gros
     -police des menus plus gros
     -style boutons -/+ (commande)
     -mise en page du popup de confirmation
@@ -17,5 +16,4 @@ Célian :
     -maintien bouton -/+
 
 Matthias :
-    -Afficher un message (identifiant ou login incorrect dans connexion)
-    -JS : regex checkMailValide (pas normal a@..fr fonctionne)
+    -

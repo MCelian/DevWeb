@@ -333,17 +333,17 @@ function AjouterProduitPanierAjax(bouton) {
             Intstock -= Intquantite;
             //Changement du stock affiché
             stock.textContent = Intstock;
-            //Active/Déactive les boutons pour la commande
-            miseAJourBouton(bouton.parentNode, quantite.value, Intstock);
-            
+
+            //Remplacer les boutons par un message si il n'y a plus de stock disponible
             messageRuptureStock(bouton.parentNode, Intstock);
             //Affiche un message de confirmation ou d'erreur
-            afficherConfirmation(reference, quantite.value, this.responseText);
+            afficherConfirmation(reference, Intquantite, this.responseText);
             //Remise à zéro de la quantité voulue
             quantite.value = 0;
+            //Active/Déactive les boutons pour la commande
+            miseAJourBouton(bouton.parentNode, quantite.value, Intstock);
         }
     };
-    
     var quantite = bouton.parentNode.querySelector('[name="quantite"]');
     var reference = bouton.parentNode.querySelector('[name="reference"]').value;
     var params = "action=panier&reference=" + reference + "&quantite=" + quantite.value;

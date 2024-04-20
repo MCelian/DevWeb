@@ -55,7 +55,14 @@
                 </tr>
                 <tr>
                     <input type="hidden" name="action" value="login">
-                    <td colspan="2"><input type="submit" value="Connexion" onclick="return checkConnexion()"></td>
+                    <td colspan="2"><input type="submit" value="Connexion" onclick="return checkConnexion()">
+                    <?php
+                            if(!empty($_SESSION['etatConnexion'])){
+                                echo "<span class='messageErreur'>". $_SESSION['etatConnexion']."</span>";
+                                unset($_SESSION['etatConnexion']);
+                            }
+                    ?>
+                    </td>
                 </tr>
             </table>
             <div>
