@@ -16,27 +16,6 @@ function afficherMenu(){
 * Produits *
 ************/
 
-
-//Fonction pour exporter tout les produits vers un fichier
-//Option pour l'admin 
-function exporterProduitsFichier(){
-    $fichier = "../data/stock.txt";
-    //Ouverture du fichier en mode écriture (pointeur en début de fichier)
-    $open = fopen($fichier, "w+");
-
-    //Vérification de l'ouverture du fichier
-    if($open != NULL){
-        foreach($_SESSION['categorie'] as $cat => $produits){
-            foreach($produits as $produit){
-             //Ecriture dans le fichier de chaque produit
-             fwrite($open,$cat.";".$produit['photo'].";".$produit['reference'].";".$produit['description'].";".$produit['prix'].";".$produit['stock']."\n");
-            }
-        }
-        //Fermeture du fichier
-        fclose($open);
-    } 
-}
-
 //Permet d'afficher les produits de la catégorie passé en paramètre
 function afficherProduits($cat){
     // Récupération des produits de la catégorie voulue
@@ -67,12 +46,12 @@ function afficherProduits($cat){
         else{ //Sinon le client peut choisir le produit
             echo "<td>
                 <form>
-                    <input type='button' value='-' disabled onclick='retirerDuPanier(this)'>
+                    <input class='bouton_stock' type='button' value='-' disabled onclick='retirerDuPanier(this)'>
                     <input type='text' value='0' readonly class='quantite-voulue' name='quantite'>
-                    <input type='button' value='+' onclick='ajouterAuPanier(this)'> <br>
+                    <input class='bouton_stock' type='button' value='+' onclick='ajouterAuPanier(this)'> <br>
                     <input type='hidden' name='action' value='panier'>
                     <input type='hidden' name='reference' value='".$produit['reference']."'>
-                    <input type='button' name='submit' value='Ajouter au panier' onclick='AjouterProduitPanierAjax(this)' disabled>
+                    <input class='bouton_stock' type='button' name='submit' value='Ajouter au panier' onclick='AjouterProduitPanierAjax(this)' disabled>
                 </form>
             </td>";
 
@@ -82,7 +61,7 @@ function afficherProduits($cat){
     
     echo "</table>";
     if(estAdmin()){
-        echo "<button onclick='afficherStock()' id='bouton-Stock'>Afficher/Masquer Stock</button>";
+        echo "<button class='bouton_stock' onclick='afficherStock()' id='bouton-Stock'>Afficher/Masquer Stock</button>";
     }
 }
 
@@ -116,34 +95,6 @@ function trouverProduit($reference){
 /************
 * Clients *
 **************/
-
-
-
-/*********
- * A voir si la fonction est utile
- * Potentiel : si on créer un compte Admin
- */
-function importerClientsFichier(){
-    $chemin = "../data/user.xml";
-
-    //Ouverture du fichier
-    $fichier = simplexml_load_file($chemin);
-
-    //Initialisation d'un tableau vide qui va accueillir les client
-    $clients = array();
-
-    foreach($fichier->client as $client){
-        $clients[] = array(
-            "sexe" => trim($client->sexe),
-            "nom" => trim($client->nom),
-            "prenom" => trim($client->prenom),
-            "naissance" => trim($client->naissance),
-            "mail" => trim($client->mail),
-            "password" => trim($client->pwd),
-            "admin" => trim($client->admin));
-    }
-    return $clients;
-}
 
 //Retourne si un client est un admin ou pas
 function estAdmin(){
@@ -188,7 +139,7 @@ function ajouterProduitPanier(){
         miseAJourStockBDD($reference, $quantite);
     }
     else{
-        echo "le produit n'est plus disponible, nous nous excusons pour la gène occationnée";
+        echo "le produit n'est plus disponible, nous nous excusons pour la gène occasionnée.";
     }
 }
 
@@ -232,7 +183,7 @@ function ajouterProduitPanier(){
         echo "<tr>
             <td colspan='1'>
             <form action='form.php' method='post'>
-            <input  type='submit' value='Vider le Panier'>
+            <input class='bouton_stock' type='submit' value='Vider le Panier'>
             <input type='hidden' name='action' value='viderPanier'>
             </form>
             </td>
@@ -246,7 +197,7 @@ function ajouterProduitPanier(){
         else{
             echo "<td colspan='4'>
             <form action='form.php' method='post'>
-            <input  type='submit' value='Valider le Panier'>
+            <input class='bouton_stock' type='submit' value='Valider le Panier'>
             <input type='hidden' name='action' value='validerPanier'>
             </form>
             </td>";
@@ -282,12 +233,12 @@ function ajouterProduitPanier(){
 function afficherTicket(){
     if(!empty($_SESSION['panier'])){
         $sommePanier= 0;
-        echo "<table>";
+        echo "<table id='table_ticket'>";
         echo "<tr>
-            <th>Référence</th>
-            <th>Quantité</th>
-            <th>Prix unitaire</th>
-            <th>Prix total</th>
+            <th class='th_ticket'>Référence</th>
+            <th class='th_ticket'>Quantité</th>
+            <th class='th_ticket'>Prix unitaire</th>
+            <th class='th_ticket'>Prix total</th>
             </tr>";
         
             foreach($_SESSION['panier'] as $reference => $quantite){
@@ -295,22 +246,22 @@ function afficherTicket(){
 
                 if($produit != null){
                     echo "<tr>";
-                    echo "<td>".$produit['reference']."</td>";
-                    echo "<td>".$quantite."</td>";
-                    echo "<td>".$produit['prix']." €</td>";
-                    echo "<td>".$produit['prix']*$quantite." €</td>";
+                    echo "<td class='td_ticket'>".$produit['reference']."</td>";
+                    echo "<td class='td_ticket'>".$quantite."</td>";
+                    echo "<td class='td_ticket'>".$produit['prix']." €</td>";
+                    echo "<td class='td_ticket'>".$produit['prix']*$quantite." €</td>";
                     echo "</tr>";
                     $sommePanier += $produit['prix']*$quantite;
                 }
             }
 
             echo "<tr>
-            <td colspan='2'></td>
-            <td colspan='2'>Prix Total : $sommePanier €</td>
+            <td colspan='2' class='td_ticket'></td>
+            <td colspan='2' class='td_ticket'><b>Prix Total : $sommePanier €</b></td>
             </tr>";
         echo "</table>";
         
-        //On vide la panier
+        //On vide le panier
         unset($_SESSION['panier']);
     }
 }

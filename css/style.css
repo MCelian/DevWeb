@@ -4,7 +4,7 @@
 html {
     margin: 0;
     padding: 0;
-    background-color: #1f1f1f;
+    background-color: #36393f;
     color: #ffffff;
     /* Theme du site (ie, les couleurs)
 
@@ -29,7 +29,7 @@ body{
     "header header" 
     "aside main" 
     "footer footer";
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr 6fr;
     grid-template-rows: auto 2fr auto;
     grid-auto-flow: dense;
     min-height: 100vh;
@@ -69,6 +69,7 @@ main div {
 }
 
 footer{
+    font-size: 20px;
     grid-area: footer;
     text-align: center;
     background-color: #1f1f1f;
@@ -186,6 +187,7 @@ footer{
 	color: white;
 	text-decoration: none;
 	line-height: 46px;
+    font-size: 22px;
 	text-align: center;
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
 	transition: text-shadow, color 1s;
@@ -232,11 +234,41 @@ table th,td {
     max-width: fit-content;
     height: 100px;
     display: block;
-    margin: auto; 
+    margin: auto;
+    cursor: pointer;
 }
 
 #bouton-Stock{
     margin: 10px;
+}
+
+.bouton_stock{
+    text-align: center;
+    color:#ff66fc;
+
+    border-radius: 3px;
+    border: 3px ridge #ff66fc;
+    background-color: #36393f;
+}
+
+.bouton_stock:disabled{
+    color: #ffffffc2;
+    border: 3px ridge #1f1f1fb2;
+	background: #36393fa1;
+}
+
+.bouton_stock:hover{
+    color: #ff66fc;
+	border: 3px ridge #ff66fc;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	background: #36393f;
+	transition: text-shadow, color 1s;
+}
+
+.bouton_stock:disabled:hover{
+    color: #ffffffc2;
+    border: 3px ridge #1f1f1fb2;
+	background: #36393fa1;
 }
 
 /* Propriétés des stocks */
@@ -386,10 +418,83 @@ table th,td {
 
 a:visited{
     color:#ff66fc;
-    text-shadow: 1px 1px 1px #ff0000, -1px 1px 1px #ff0000, 1px -1px 1px #ff0000, -1px -1px 1px #ff0000;
+    text-shadow: 1px 1px 1px #1f1f1f, -1px 1px 1px #1f1f1f, 1px -1px 1px #1f1f1f, -1px -1px 1px #1f1f1f;
 }
 
 a{
     color:#f6a50b;
-    text-shadow: 1px 1px 2px #1f1f1f;
+    text-shadow: 1px 1px 2px #1f1f1f, -1px 1px 2px #1f1f1f, 1px -1px 2px #1f1f1f, -1px -1px 2px #1f1f1f;
 }
+
+
+/***********
+* Mise en page du ticket
+****************/
+
+#html_ticket{
+    display:flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    background-color: #36393f;
+    color: #ffffff;
+}
+
+.body_ticket {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #f6a50b;
+    min-width: 800px;
+}
+
+.body_ticket form{
+    align-self: flex-start;
+}
+
+#table_ticket {
+    flex: 10;
+    margin: 10px 0 0 0;
+    align-self: center;
+    max-width: 500px;
+    border: 1px solid #f6a50b;
+}
+
+.td_ticket {
+    height: 50px;
+    border: 1px solid #f6a50b;
+}
+
+.th_ticket {
+    height: 50px;
+    border: 1px solid #f6a50b;
+}
+
+#logo_ticket {
+    flex: 1;
+    align-self: center;
+    margin-top: 10px;
+    max-width: 400px;
+    max-height: 150px;
+}
+
+.bouton_ticket{
+    margin: 5px 0px 0px 5px;
+    flex: 1;
+    align-self: flex-start;
+    justify-self: flex-start;
+    text-align: center;
+    color:#ff66fc;
+    border-radius: 3px;
+    border: 3px ridge #ff66fc;
+    background-color: #36393f;
+}
+
+.bouton_ticket:hover{
+    color: #ff66fc;
+	border: 3px ridge #ff66fc;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	background: #36393f;
+	transition: text-shadow, color 1s;
+}
+

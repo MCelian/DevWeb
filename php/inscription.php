@@ -136,7 +136,7 @@
                     <td colspan="2"><input type="submit" value="Création du compte" onclick="return checkInscription()">
                     <?php
                             if(!empty($_SESSION['etatInscription'])){
-                                echo "<span>". $_SESSION['etatInscription']."</span>";
+                                echo "<span class='erreurMessage'>". $_SESSION['etatInscription']."</span>";
                                 unset($_SESSION['etatInscription']);
                             }
                         ?>

@@ -21,8 +21,8 @@
     <main>
         <!--Accueillir l'image dans un Popup -->
         <div id="popup-overlay">
+        <span id="fermer-popup" onclick="fermerImage()">&times;</span>
             <div id="popup">
-                <span id="fermer-popup" onclick="fermerImage()">&times;</span>
                 <img src="" alt="" id="image-popup">
             </div>
         </div>

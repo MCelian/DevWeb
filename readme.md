@@ -27,3 +27,10 @@ Avant d'utiliser le site pour la première fois, devenir importer la base de don
 
 Pour terminer, changer le mot de passe du fichier bddData.php du répertoire bdd :
     const MYSQL_PASSWORD='Votre mot de passe';
+
+
+Compte Administrateur :
+
+Si vous souhaitez vous connecter en tant qu'adminstrateur, vous pouvez utiliser le compte :
+    identifiant : mignotceli@cy-tech.fr
+    mot de passe : Cytech0001!

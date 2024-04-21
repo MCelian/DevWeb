@@ -8,6 +8,7 @@ include_once('../php/data.php');
         <hr>
         <h2>Nos produits</h2>
         <?php afficherMenu(); ?>
+        <hr>
         <h2>Aide</h2>
         <li><a href="../php/contact.php">Contact</a></li>
     </ul>

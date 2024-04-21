@@ -18,10 +18,12 @@
     <?php include('../php/header.php'); ?>
     <?php include('../php/nav.php'); ?>
     <main>
-        <h1>"Dites-le avec Néomania"</h1>
+        <h1>L'équipe de Néo-mania vous souhaite la bienvenue</h1>
         <img src="../img/logo.jpg" alt="logo du site" id="mainLogo">
         <br>
-        Appeler notre service commercial au 03.22.84.65.74 pour un bon de commande
+        <p>
+            Nous vous proposons à la vente une sélection de consoles que nous avons choisis avec soins.
+        </p>
     </main>
     <?php include('../html/footer.html'); ?>
 </body>
