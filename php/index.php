@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../img/icon.png">
+    <link rel="icon" href="../img/logo.webp">
     <link rel="stylesheet" href="../css/style.css">
     <title>Néomania : Accueil</title>
 </head>
@@ -19,10 +19,10 @@
     <?php include('../php/nav.php'); ?>
     <main>
         <h1>L'équipe de Néo-mania vous souhaite la bienvenue</h1>
-        <img src="../img/logo.jpg" alt="logo du site" id="mainLogo">
+        <img src="../img/logo.webp" alt="logo du site" id="mainLogo">
         <br>
         <p>
-            Nous vous proposons à la vente une sélection de consoles que nous avons choisis avec soins.
+            Nous vous proposons à la vente une sélection de consoles que nous avons choisis avec soin.
         </p>
     </main>
     <?php include('../html/footer.html'); ?>

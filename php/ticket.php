@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../img/icon.png">
+    <link rel="icon" href="../img/logo.webp">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/stock.js"></script>
     <title>Néomania : Ticket</title>
@@ -21,7 +21,7 @@
         <input type='hidden' name='action' value='pagePrincipale'>
         <input type='submit' class='bouton_ticket' value='Retour à la page principale'>
     </form>
-        <img src="../img/switch.jpg" id="logo_ticket" alt="logo du site">
+        <img src="../img/logo.webp" id="logo_ticket" alt="logo du site">
         <h1> Néo-Mania </h1>
         <p> <i> Avenue du Parc, 95011 Cergy-Pontoise, France <br> Téléphone: +33 1 34 25 10 10 </i> </p>
     <?php

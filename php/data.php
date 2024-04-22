@@ -5,7 +5,7 @@ include_once('../bdd/bdd.php');
 /***********
 * Menu *
 ************/
-
+//Permet l'affichage automatique des menus
 function afficherMenu(){
     foreach($_SESSION['categorie'] as $key => $elm){
         echo "<li><a href='../php/produits.php?cat=$key'>$key</a></li>\n";

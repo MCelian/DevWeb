@@ -4,7 +4,7 @@ include_once('../php/data.php');
 
 <header>
     <div class="logo_titre_connexion">
-        <a href="../php/index.php" id="logo_header"> <img src="../img/switch.jpg" alt="Logo du site" id="logo"></a>
+        <a href="../php/index.php" id="logo_header"> <img src="../img/logo.webp" alt="Logo du site" id="logo"></a>
         <h1 id="titre_header">Néo-Mania</h1>
         <div id="panier_connexion">
             <?php if(!empty($_SESSION["user"])){
