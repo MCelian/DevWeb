@@ -149,7 +149,7 @@ function miseAJourStockBDD($reference, $quantite) {
     //Fermeture de la base de données
     $dbh = deconnexionBDD();
 }
-
+//vérification du stock
 function checkStockBDD($reference, $quantite){
     $dbh = connexionBDD();
 
