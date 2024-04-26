@@ -2,7 +2,7 @@ Bonjour,
 
 Utilisation :
 
-Vous devez démarrer un serveur php, pour cela vous :
+Vous devez démarrer un serveur php, pour cela:
 
 -Dans un terminal, placez vous dans le répertoire où se trouve ce projet
     cd path
@@ -16,17 +16,19 @@ Maintenant vous pouvez accéder au site internet en entrant dans la barre de rec
 
 Première utilisation :
 
-Avant d'utiliser le site pour la première fois, devenir importer la base de données et ce qu'elle contient manuellement.
+Avant d'utiliser le site pour la première fois, vous devez importer la base de données et ce qu'elle contient manuellement.
 
--Pour lancer un terminal mysql, entrer dans votre console : mysql -u root -p
--Une fois dans votre terminal mysql, vous allez insérer les fichiers suivant :
+-Pour lancer un terminal MySql, entrer dans votre console : mysql -u root -p
+-Une fois dans votre terminal MySql, vous allez insérer les fichiers suivant :
     source path/néomania.sql;
     source path/néomaniadata.sql;
+    exemple : source  ~/Desktop/DevWeb/sql/néomania.sql
 
 -Quittez votre terminal mysql en entrant : exit;
 
 Pour terminer, changer le mot de passe du fichier bddData.php du répertoire bdd :
     const MYSQL_PASSWORD='Votre mot de passe';
+    exemple: MYSQL_PASSWORD='ABCD963';
 
 
 Compte Administrateur :
