@@ -5,7 +5,7 @@
 
 <!DOCTYPE html>
 <html lang="fr">
-
+/*De nombreuses balises PHP sont là pour éviter des erreur de champs.*/
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
