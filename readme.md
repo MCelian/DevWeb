@@ -33,6 +33,6 @@ Pour terminer, changer le mot de passe du fichier bddData.php du répertoire bdd
 
 Compte Administrateur :
 
-Si vous souhaitez vous connecter en tant qu'adminstrateur, vous pouvez utiliser le compte :
+Si vous souhaitez vous connecter au site en tant qu'adminstrateur, vous pouvez utiliser le compte suivant :
     identifiant : mignotceli@cy-tech.fr
     mot de passe : Cytech0001!
