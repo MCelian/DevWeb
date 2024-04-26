@@ -20,8 +20,8 @@ Avant d'utiliser le site pour la première fois, vous devez importer la base de 
 
 -Pour lancer un terminal MySql, entrer dans votre console : mysql -u root -p
 -Une fois dans votre terminal MySql, vous allez insérer les fichiers suivant :
-    source path/néomania.sql;
-    source path/néomaniadata.sql;
+    source completpath/néomania.sql;
+    source completpath/néomaniadata.sql;
     exemple : source  ~/Desktop/DevWeb/sql/néomania.sql
 
 -Quittez votre terminal mysql en entrant : exit;
